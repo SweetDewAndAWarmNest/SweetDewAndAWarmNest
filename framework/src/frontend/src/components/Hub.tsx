@@ -11,6 +11,8 @@ export interface ChatMessage {
   timestamp: string;
   validated: boolean;
   isOwn?: boolean;
+  isAI?: boolean;
+  sender?: 'user' | 'ai' | 'system';
   isEmoji?: boolean;
 }
 
@@ -68,7 +70,6 @@ function ChatBubble({ message, isOwn }: { message: ChatMessage; isOwn: boolean }
   const displayName = isAI ? 'AI Companion' : isSystem ? 'System' : (isOwn ? 'You' : 'Companion');
   const bubbleClass = isOwn ? 'own' : isAI ? 'ai-bubble' : isSystem ? 'system-bubble' : 'guest';
   const bubbleColor = isOwn ? theme.accent : isAI ? '#4a9eff' : isSystem ? '#888' : theme.text;
-  const avatarColor = isOwn ? theme.accent : isAI ? '#4a9eff' : isSystem ? '#888' : '#8b7565';
 
   return (
     <div

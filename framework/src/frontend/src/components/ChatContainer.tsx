@@ -66,17 +66,16 @@ function connectSocket(roomId: string) {
   };
   socket.onclose = () => {
     socket = null;
-    setIsConnected(false);
   };
 }
 
 // ── AI NPC service ─────────────────────────────────────
 const aiNpcService = {
   // Generate a response using server-side Gemma (or retrieval fallback)
-  async generateResponse(prompt: string, intent: string = 'default-npc'): Promise<string> {
-    return new Promise((resolve, reject) => {
+  generateResponse(prompt: string, intent: string = 'default-npc'): Promise<string> {
+    return new Promise((resolve) => {
       if (!socket || socket.readyState !== WebSocket.OPEN) {
-        reject(new Error('Not connected to server'));
+        resolve("I'm having trouble connecting right now. Let's just rest here together.");
         return;
       }
       socket.send(JSON.stringify({ type: 'ai-response', prompt, intent }));
@@ -92,22 +91,17 @@ export function HubContainer() {
   const [roomId] = useState(`nest-${Date.now()}`);
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [library, setLibrary] = useState<Record<string, string>>({});
-  const [isConnected, setIsConnected] = useState(false);
-  const [loadingLibrary, setLoadingLibrary] = useState(true);
 
   // Subscribe to chat-message events
   useEffect(() => {
     // Load phrase library
     chatService.loadLibrary().then((lib) => {
       setLibrary(lib);
-      setLoadingLibrary(false);
     }).catch(() => {
-      setLoadingLibrary(false);
     });
 
     // Connect to backend WebSocket
     connectSocket(roomId);
-    setIsConnected(true);
 
     // Subscribe to chat messages
     const handleMessage = (e: Event) => {
@@ -172,7 +166,7 @@ export function HubContainer() {
 
   return (
     <Suspense fallback={<div>Loading sanctuary...</div>}>
-      <Hub roomId={roomId} chat={messages} onSendMessage={handleSendMessage} />
+      <Hub roomId={roomId} chat={messages} onSendMessage={handleSendMessage} library={library} />
     </Suspense>
   );
 }

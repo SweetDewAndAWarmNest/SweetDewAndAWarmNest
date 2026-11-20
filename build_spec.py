@@ -1,0 +1,70 @@
+import re
+
+p = "SPEC_CHAT"
+s = open(p, encoding="utf-8").read()
+lines = s.splitlines(keepends=True)
+
+front = [
+"---\n",
+"name: SPEC_CHAT\n",
+"title: SweetDewAndAWarmNest — Shared-Ubiverse Wellbeing Sanctuary\n",
+"version: 1.0.0\n",
+"status: Draft for Production\n",
+"audience: Product, Design, Engineering, Clinical, Legal, Ops\n",
+"domains: [mental-health, wellbeing, cozy-games, AI-NPC, multiplayer, PWA]\n",
+"last-updated: 2026-11-20\n",
+"---\n\n",
+"\n",
+"<!-- ============================================================ -->\n",
+"<!--                     TABLE OF CONTENTS                      -->\n",
+"<!-- ============================================================ -->\n",
+"\n",
+"1. [Executive Summary](#executive-summary)\n",
+"2. [Shared Universe & Hub](#shared-universe--hub)\n",
+"3. [Game Portfolio](#game-portfolio)\n",
+"4. [Avatar & Experience Customization](#avatar--experience-customization)\n",
+"5. [Non-Human Embodiment (Furries, Alterkin, Otherkin)](#non-human-embodiment-furries-alterkin-otherkin)\n",
+"6. [Positive-Only Communication System](#positive-only-communication-system)\n",
+"7. [AI-NPC Companion Architecture](#ai-npc-companion-architecture)\n",
+"8. [Multiplayer & Communication Safety](#multiplayer--communication-safety)\n",
+"9. [Accessibility & Cognitive-Load Design](#accessibility--cognitive-load-design)\n",
+"10. [Inclusive Identity Systems](#inclusive-identity-systems)\n",
+"11. [Game Design & Evidence Base](#game-design--evidence-base)\n",
+"12. [Technical Architecture](#technical-architecture)\n",
+"13. [Data Minimization Architecture](#data-minimization-architecture)\n",
+"14. [Sustainability & Governance](#sustainability--governance)\n",
+"15. [Phased Roadmap](#phased-roadmap)\n",
+"16. [Open Questions](#open-questions)\n",
+"17. [Production-Grade Checklist](#production-grade-checklist)\n",
+"\n",
+"---\n\n",
+"\n",
+"## 1. Executive Summary\n\n",
+"Building a free, ad-free sanctuary for people navigating low energy, depression, or related feelings requires **empathy as its foundation**: safety and calm are core architecture, not features. Users arrive in states of high cognitive load and vulnerability; the interface must actively lower its volume to avoid feeling like \"a door slamming shut.\"\n",
+"\n",
+"### 1.1 Vision\n",
+"\n",
+"- **A shared universe** — a cozy sanctuary where every game is a room in the same house, with the same characters, geography, and soundscape.\n",
+"- **Bounded AI-NPCs** that are supportive, upbeat, explicitly non-human, and anti-dependency by design.\n",
+"- **Cozy, fail-safe games** that are pull-based, optional, and non-competitive.\n",
+"- **Radical data minimization** from day one: never collect what you don't need; process on-device where possible.\n",
+"\n",
+"### 1.2 Guiding Principles\n",
+"\n",
+"| Domain | Core Directive |\n",
+"| :--- | :--- |\n",
+"| Philosophy | Trauma-informed, proportionality-by-design, and radical transparency. |\n",
+"| Safety | Layered crisis infrastructure, bounded AI, continuous human oversight. |\n",
+"| UX/UI | Engineering calm through cognitive accessibility, predictability, and user control. |\n",
+"| AI NPCs | Supportive, upbeat, explicitly non-human, anti-dependency. |\n",
+"| Games | Cozy, fail-safe, biofeedback-driven, always optional. |\n",
+"| Content | Evidence-based, professionally reviewed, organized by user intent. |\n",
+"| Sustainability | Nonprofit/donation/grant-funded. Never ads, never data selling. |\n",
+"| Compliance | Clear medical disclaimers, FTC-grade data privacy, wellness framing. |\n",
+"\n",
+"---  \n\n"
+]
+
+out = "".join(front) + s
+open(p, "w", encoding="utf-8").write(out)
+print("frontmatter added; total lines:", len(out.splitlines()))

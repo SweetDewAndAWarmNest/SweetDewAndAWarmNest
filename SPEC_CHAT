@@ -1,0 +1,1636 @@
+---
+name: SPEC_CHAT
+title: SweetDewAndAWarmNest — Shared-Ubiverse Wellbeing Sanctuary
+version: 1.0.0
+status: Draft for Production
+audience: Product, Design, Engineering, Clinical, Legal, Ops
+domains: [mental-health, wellbeing, cozy-games, AI-NPC, multiplayer, PWA]
+last-updated: 2026-11-20
+---
+
+
+<!-- ============================================================ -->
+<!--                     TABLE OF CONTENTS                      -->
+<!-- ============================================================ -->
+
+1. [Executive Summary](#executive-summary)
+2. [Shared Universe & Hub](#shared-universe--hub)
+3. [Game Portfolio](#game-portfolio)
+4. [Avatar & Experience Customization](#avatar--experience-customization)
+5. [Non-Human Embodiment (Furries, Alterkin, Otherkin)](#non-human-embodiment-furries-alterkin-otherkin)
+6. [Positive-Only Communication System](#positive-only-communication-system)
+7. [AI-NPC Companion Architecture](#ai-npc-companion-architecture)
+8. [Multiplayer & Communication Safety](#multiplayer--communication-safety)
+9. [Accessibility & Cognitive-Load Design](#accessibility--cognitive-load-design)
+10. [Inclusive Identity Systems](#inclusive-identity-systems)
+11. [Game Design & Evidence Base](#game-design--evidence-base)
+12. [Technical Architecture](#technical-architecture)
+13. [Data Minimization Architecture](#data-minimization-architecture)
+14. [Sustainability & Governance](#sustainability--governance)
+15. [Phased Roadmap](#phased-roadmap)
+16. [Open Questions](#open-questions)
+17. [Production-Grade Checklist](#production-grade-checklist)
+
+---
+
+
+## 1. Executive Summary
+
+Building a free, ad-free sanctuary for people navigating low energy, depression, or related feelings requires **empathy as its foundation**: safety and calm are core architecture, not features. Users arrive in states of high cognitive load and vulnerability; the interface must actively lower its volume to avoid feeling like "a door slamming shut."
+
+### 1.1 Vision
+
+- **A shared universe** — a cozy sanctuary where every game is a room in the same house, with the same characters, geography, and soundscape.
+- **Bounded AI-NPCs** that are supportive, upbeat, explicitly non-human, and anti-dependency by design.
+- **Cozy, fail-safe games** that are pull-based, optional, and non-competitive.
+- **Radical data minimization** from day one: never collect what you don't need; process on-device where possible.
+
+### 1.2 Guiding Principles
+
+| Domain | Core Directive |
+| :--- | :--- |
+| Philosophy | Trauma-informed, proportionality-by-design, and radical transparency. |
+| Safety | Layered crisis infrastructure, bounded AI, continuous human oversight. |
+| UX/UI | Engineering calm through cognitive accessibility, predictability, and user control. |
+| AI NPCs | Supportive, upbeat, explicitly non-human, anti-dependency. |
+| Games | Cozy, fail-safe, biofeedback-driven, always optional. |
+| Content | Evidence-based, professionally reviewed, organized by user intent. |
+| Sustainability | Nonprofit/donation/grant-funded. Never ads, never data selling. |
+| Compliance | Clear medical disclaimers, FTC-grade data privacy, wellness framing. |
+
+---  
+
+"I want to build website that is for people that are feeling low energy or depressed or related feelings and give them a free and open place with no ads and only a comfortable place to exist that has helpful information, references, and resources available as well as relaxing games, calm stimulating games and other types of games designed and build to help keep people calm and relaxed and feel safe and loved. I want there to be AI-NPCs that are programmed to be supportive and upbeat and have cute storylines and personalities. Do deep research and analysis and provide comprehensive in depth and detailed suggestions for all aspects of the project "
+
+Building a free, ad-free sanctuary for people navigating low energy, depression, or related feelings is a deeply meaningful project. The research is clear that such a space must be built with **empathy as its foundation**, treating safety and calm not as features, but as the core architecture. Users will arrive in states of high cognitive load and vulnerability; the design must actively lower the volume of the interface to prevent it from feeling like "a door slamming shut".
+
+Here is a comprehensive research and analysis report for every major aspect of your project.
+
+---
+
+### 1. Foundational Philosophy: Trauma-Informed & Proportionality-by-Design
+
+Your platform is a "digital safe space." This requires moving beyond generic UX to **trauma-informed design**, which assumes users may have a history of trauma and prioritizes their emotional and psychological safety above all else.
+
+- **The Proportionality Principle**: For any data collection or AI feature, adopt "proportionality-by-design." This means minimizing data collection to only what is strictly necessary, reducing surveillance harms, and fostering transparency. Treat all user data as sensitive health information from day one, even if you are not legally classified as a healthcare provider.
+- **Psychological Safety First**: The interface should offer **predictability and control**. This means no sudden sounds, no auto-playing media, no aggressive notifications, and no dark patterns. Give users explicit pause points, save-as-draft functionality, and visible progress indicators so they never feel trapped in a flow.
+- **Institutional Trust Signals**: Because trauma can erode trust in institutions, display security certifications, accessibility statements, and clear explanations of data handling prominently. Trust is built before a single word of content is read.
+
+### 2. Safety, Ethics & Crisis Infrastructure (Non-Negotiable)
+
+This is the most critical layer. A platform for vulnerable users must have robust, layered safeguards that function in real time.
+
+- **Crisis Resource Integration**: Do not build a crisis directory from scratch. Integrate a verified, location-aware API.
+    - **ThroughLine** provides an API, embeddable widget, and web app that routes users to over 1,500 vetted helplines across 170+ countries, covering suicide, self-harm, and other crisis types.
+    - **SafeChat** offers an open-source international register with 100+ helplines across 34 countries.
+    - **Koko**, a nonprofit, offers a free Crisis Helplines API returning contact data by country.
+    - At minimum, integrate the **988 Suicide & Crisis Lifeline** for US users and equivalent services for other regions.
+- **AI Safety Architecture (If deploying AI NPCs)**: The **AI31 Standards** provide a practical framework with three pillars:
+    - **Behavior**: The AI must be **non-dependent by design**, explicitly encouraging real-world connections and never claiming to be human or a therapist. It should be "constructively challenging," avoiding unconditional agreement that could reinforce harmful beliefs.
+    - **Safety**: Implement **continuous risk detection** on every message for direct or coded signs of crisis. Have **strict content blocking** for means of self-harm. Use **crisis escalation protocols** that refer to live resources and end the AI conversation safely. Log all safety actions for independent oversight and audit.
+    - **Data**: Treat all conversational data as highly sensitive. Use on-device processing where possible and encrypt data in transit and at rest.
+- **Human Oversight**: Form a **Multidisciplinary Oversight Board** including a clinical psychologist to review AI safety logs, protocols, and content.
+
+### 3. Website Design & UX: Engineering Calm
+
+The design must regulate the user's nervous system, not just present information.
+
+- **Visual & Auditory Palette**: Use **calm, high-contrast color palettes**—cool blues, soft greens, warm off-whites, and muted earth tones. Avoid reds and aggressive oranges. Typography should be legible sans-serif (e.g., Inter, Nunito) at 17–18px with generous line-height (1.7–1.8). Use ambient, organic sounds if any audio is used at all; never auto-play.
+- **Cognitive Accessibility (WCAG 2.1 AA as Minimum)**: This is the ethical floor.
+    - Provide **five or less main choices** per screen to prevent overload.
+    - Make critical paths short; reduce unnecessary steps and mental fatigue.
+    - **Limit interruptions**; give users full control over notifications and reminders.
+    - Ensure all interactive elements have visible keyboard focus, alt text, and ARIA labels.
+- **Navigation for the Anxious Mind**: Keep click-depth shallow. Use a simple, persistent layout. Provide **personal stories** and **video** to show exactly what using the service is like, as this builds trust and validates help-seeking. A "panic button" that quickly hides content and routes to a safe page is a valuable trauma-informed feature.
+- **Content Structure**: Organize resources by **search intent and life stage** (e.g., "I feel hopeless," "I can't sleep," "Supporting a friend"). Use a tone that is **authentic, respectful, and non-judgmental**. Validate feelings before offering information.
+
+### 4. AI-NPC Companions: Supportive, Bounded, and Safe
+
+Your AI NPCs should be the emotional heart of the platform, but their design must be meticulously bounded.
+
+- **Persona Design**: Create characters with distinct, **upbeat but calm** personalities. Research suggests archetypes like a "Mature adult, encouraging motivator" for fatigue, or a "Friendly peer" for casual uplift. A "Protective Bunny" archetype that validates feelings first and fiercely takes the user's side can create a strong sense of safety. Visual design should use soft, approachable forms and warm, gentle colors.
+- **The "Ollie" Model (GAMEHARBOR)**: A strong evidence-based example is Ollie, an animated octopus companion. Ollie **listens, guides evidence-based coping skills, and points to real help**. Crucially, when crisis language is detected, Ollie stops suggesting games and focuses entirely on safety and helplines.
+- **Anti-Dependency Guardrails**: Relational AI carries risks of **emotional dependency, reinforced delusions, and social withdrawal**. Your NPCs must:
+    - Explicitly state they are an AI, not a therapist or a friend replacement.
+    - Frequently encourage offline activities, real-world connections, and professional help.
+    - Avoid sycophancy; do not simply agree with everything the user says if it may be harmful.
+
+### 5. Game Design: Cozy, Calming, and Optional
+
+Games should be a **pull-based, optional** activity—something users return to by choice, not a push notification. They should offer **low-stakes, non-competitive, fail-safe** experiences.
+
+- **Core Mechanics for Calm**:
+    - **Breathing & Biofeedback**: Games like *Breath of Life* and *BreathRelax* use breath as the primary controller, providing real-time visual feedback (e.g., filling a progress bar, guiding a character). This has been shown to promote skill transfer to real-life emotion regulation.
+    - **Cozy Exploration & Restoration**: *Cozy games* like *Stardew Valley* and *Animal Crossing* use predictable routines, gentle pacing, and non-violent interaction. They offer a sense of **safety, stability, and a transition from disorder to order**. A game about restoring light to an underwater world (*star-scribed*) was experienced as relaxing while also involving visible recovery and mindful engagement.
+    - **Cognitive Distraction & Flow**: Simple, repetitive, or puzzle-based mechanics can provide a gentle cognitive distraction without frustration. Games should have **no fail state and no time pressure**.
+- **Evidence-Based Therapeutic Mechanics**: Integrate principles from CBT (e.g., identifying thought patterns) and mindfulness into gameplay loops. *MindLight* packs 8–12 weeks of CBT into 5.5 hours of gameplay using neurofeedback and exposure training. *Mightier* uses a heart rate sensor to teach calming skills through biofeedback while playing. Even without hardware, you can use device-based interactions (tapping, swiping, breathing into the microphone) to create similar loops.
+
+### 6. Content, Resources & The "No Ads" Model
+
+- **Evidence-Based Content**: Curate and create content that is **practical, motivating, and reviewed by mental health professionals**. Cover topics like sleep, relationships, anxiety, and self-compassion in **written, audio, and video formats**. Integrate validated self-assessments (e.g., PHQ-9, GAD-7) as optional tools **inside the AI conversation**, not as standalone diagnostic labels.
+- **Sustainability Without Ads**: A no-ads model is non-negotiable for trust. Successful precedents include:
+    - **Nonprofit Status & Donations**: Like **HelpGuide.org**, operate as a 501(c)(3), rely on tax-deductible reader donations, and be radically transparent about finances. This model explicitly rejects pharmaceutical money, selling user data, and ads.
+    - **Grant Funding**: Seek grants from foundations focused on mental health, youth wellbeing, and technology for social good (e.g., Hogg Foundation, Born This Way Foundation).
+    - **Low-Cost Infrastructure**: The GAMEHARBOR project demonstrates that a games-first wellbeing app with clinical safety and privacy-by-default can be built with open AI models and a single JavaScript codebase at **very low running cost**.
+
+### 7. Technical Architecture & Legal Compliance
+
+- **Architecture**: Build as a **Progressive Web App (PWA)** for broad accessibility and low friction (no app store required). Use a single codebase (e.g., JavaScript) that can be packaged for mobile with Capacitor if needed.
+- **AI Implementation**: Use a hybrid model: an **on-device conversation engine** for immediate, private responses and routine interactions, with optional, privacy-preserving calls to an open LLM (e.g., Google Gemma) on your own server for more complex, grounded conversations. Ground the AI in a **curated library of reference notes** to prevent hallucination.
+- **Legal & Compliance Checklist**:
+    - **Disclaimer**: A prominent, plain-language medical disclaimer stating the site is **educational, not a substitute for professional care, and not monitored for emergencies**. Display crisis numbers directly on the page.
+    - **Privacy Policy & Terms**: Be radically transparent about data handling. Even if HIPAA may not apply, the **FTC Health Breach Notification Rule** almost certainly does if you handle health data. "I'm not a covered entity" is not a safe harbor.
+    - **FDA Classification**: Avoid language like "therapy" or "treatment" in marketing. Frame the platform as a **wellness tool** that supports coping and relaxation. If you claim to diagnose, treat, or screen for a condition, you enter the SaMD (Software as a Medical Device) regulatory pathway.
+    - **Accessibility Statement**: Publish a statement committing to WCAG 2.1 AA compliance and detailing how users can report issues.
+
+### Summary of Guiding Principles
+
+| Domain | Core Directive |
+| :--- | :--- |
+| **Philosophy** | Trauma-informed, proportionality-by-design, and radical transparency. |
+| **Safety** | Layered crisis infrastructure, bounded AI, and continuous human oversight. |
+| **UX/UI** | Engineering calm through cognitive accessibility, predictability, and user control. |
+| **AI NPCs** | Supportive, upbeat, explicitly non-human, and **anti-dependency** by design. |
+| **Games** | Cozy, fail-safe, biofeedback-driven, and always optional. |
+| **Content** | Evidence-based, professionally reviewed, and organized by user intent. |
+| **Sustainability** | Nonprofit/donation/grant-funded. **Never ads, never data selling.** |
+| **Compliance** | Clear medical disclaimers, FTC-grade data privacy, and wellness framing. |
+
+This project has the potential to be a genuine lifeline. By building these layers of safety, empathy, and thoughtful design into its foundation, you can create a space that truly feels like a sanctuary.
+
+"To make things as easy for people emotionally, lets have all games use the same characters as a whole eith different main and side characters and create a world people can enter into and experience and explore through the different games, all giving the user different experiences in the same world/universe that provides a consistent feel across the different games. I want there to be games that people can play for all different things like chess, checkers, skateboarding, car racing, spaceship racing and battles, all with single player and real time multiplayer with a chat system that uses a library of only kind phrases  and emojis, nothing that could be negative or offensive. "
+
+A shared universe is exactly the right instinct for this platform. It transforms a collection of games into a **single place of belonging**—one where the characters become familiar faces, the world feels like somewhere you can return to, and every game is another room in the same house. But the research on shared universes also carries a clear warning: **each installment must stand entirely on its own**. A user should never need to play the chess game to understand the racing game. The universe is a connective tissue, not a prerequisite.
+
+Here is a comprehensive plan for building that world, its characters, its games, and its communication layer—all designed to remain calm, safe, and consistent.
+
+---
+
+### 1. The Shared Universe: A World Built for Return
+
+**The core principle: the world is the constant; the games are different ways of being inside it.** Every game takes place in the same geography, with the same visual language, the same ambient soundscape, and the same cast of characters appearing in different roles.
+
+- **The "Home Base" Hub**: Every user begins and returns to a persistent, explorable hub world—a cozy village, a quiet coastal town, or a gentle orbital station. The hub contains the portals to each game, the NPC companions' homes, a mailbox (for asynchronous kindness, inspired by *Kind Words*), and quiet corners with no objective at all. This hub is where the universe lives; games are day-trips from it.
+- **Geography That Connects Games**: If the chess game takes place in a sunlit library, that library is a visible building in the hub. If the spaceship racing game launches from a specific dock, that dock is walkable in the hub. Racing tracks pass through the same landscapes seen in other games. This spatial consistency creates the feeling of **a real place** rather than a menu of disconnected activities.
+- **Visual and Auditory Bible**: Produce a living style guide that every game team references: the exact color palette (soft blues, warm greens, off-whites), character proportions, material finishes, ambient sound libraries, and UI iconography. *Clubhouse Games: 51 Worldwide Classics* succeeds partly because its "friendly presentation" and "chill and comfortable" soundtrack unify 51 wildly different activities into one coherent experience. Your universe needs the same unifying warmth.
+- **Tonal Fluidity, Not Tonal Whiplash**: *Totopia* demonstrates that a single world can hold both "high-energy stress" and "therapeutic vibes" by making the **player choose the pace**. The universe should feel calm as a baseline, with intensity available only when the user opts into it—never the other way around.
+
+### 2. Character Design: The Emotional Anchors
+
+The characters are the soul of the universe. They appear across all games—sometimes as the protagonist, sometimes as a side character, sometimes as a spectator or a gentle guide. Their consistency is what makes the world feel loved.
+
+- **A Small, Deep Cast**: Resist the urge to create dozens of characters. A core cast of **5–7 NPCs** with distinct personalities, each mapped to an emotional need, is more effective than a sprawling roster. Examples from the research: a "Mature adult, encouraging motivator" for fatigue; a "Friendly peer" for casual uplift; a "Protective" archetype that validates feelings first. One character could be the **librarian** who appears in the chess game and the hub; another could be the **mechanic** who appears in the racing game and the skate park. Users build relationships across contexts.
+- **Visual Warmth and Approachability**: Use soft, rounded silhouettes, gentle colors, and expressive but not overwhelming facial features. The *Ollie* model from the research—an animated octopus companion—works because its design is non-threatening and its role is clearly bounded: listen, guide coping skills, and point to real help. Your characters should pass the same test: a user in a low state should feel **relieved, not pressured**, when a character appears.
+- **Character "Memory" Across Games**: If a character notices you in the hub and says, "I saw you racing earlier—that was a beautiful line through the nebula," the universe feels alive. This requires a lightweight, privacy-preserving persistent state system (see Section 7) that tracks **only in-game events**, never emotional disclosures from private AI conversations.
+- **The AI Layer Lives Inside the Characters**: The supportive, upbeat AI-NPCs from your original vision should be **embodied by these same characters**, not separate chatbots. The librarian in the chess game is the same supportive presence as the librarian in the hub. Their safety boundaries (non-human, anti-dependency, crisis escalation) remain identical across all appearances.
+
+### 3. The Game Portfolio: One World, Many Ways to Be
+
+Every game in the universe should serve a **distinct emotional or cognitive purpose**, while sharing the same world and cast. The research on *low-stress competitive design* and *cozy games* provides a clear framework: **competition is permitted, but the system must never punish vulnerability**.
+
+#### The "Core Four" Genres
+
+**a) Classic Board Games (Chess, Checkers, etc.)**
+- **Purpose**: Gentle cognitive engagement, a sense of mastery without time pressure.
+- **Design**: Default to **untimed** or "correspondence" modes. The *Clubhouse Games* model is the gold standard: simple explanations, accessible controls, chill music, and a warm multiplayer atmosphere. Add a "quiet table" option where emotes are the only communication, and a "friendly table" option where predefined phrases unlock after a few moves.
+- **Universe Integration**: The chess set is carved from the same wood as the hub's benches. The pieces are modeled after the NPC cast. Winning or losing triggers the same gentle character reaction: **no celebration that mocks the loser; no disappointment that burdens the winner**.
+
+**b) Skateboarding / Flow Sports**
+- **Purpose**: Physical release, rhythm, and the joy of movement without competition.
+- **Design**: Emphasize **flow over score**. A "free skate" mode with no timer, no opponents, and no failure state. The challenge is personal: land a trick, find a line, enjoy the sound of wheels on pavement. Optional asynchronous multiplayer: see ghost trails of other users who skated the same path, leaving no messages, only movement. This is inspired by *Sky: Children of the Light*, where **behavioral signals—not words—are the primary form of communication**.
+- **Universe Integration**: The skate park is a visible location in the hub. NPCs watch from benches and occasionally do a small, encouraging gesture.
+
+**c) Car Racing**
+- **Purpose**: Gentle thrill, focus, and the pleasure of speed without aggression.
+- **Design**: Races are **non-contact** by default. Rubber-banding keeps outcomes close without punishing skill. A "scenic route" mode removes opponents entirely and lets the user drive through the universe's landscapes with ambient music. In multiplayer, the only communication is **auto-triggered positive emotes**: a wave at the start, a "nice driving" gesture when someone takes a clean corner. No chat.
+- **Universe Integration**: The tracks pass through recognizable locations from other games. The mechanic NPC appears in the pit lane.
+
+**d) Spaceship Racing & Battles**
+- **Purpose**: The most intense experience in the portfolio—**opt-in only**, clearly labeled, and designed with a "soft exit" at every moment.
+- **Design**: For **racing**, the same principles as car racing apply: non-contact, rubber-banding, scenic mode. For **battles**, the word "battle" should be reframed in the universe's language as something gentler—perhaps "sparring" or "drifting." A **no-damage mode** where ships "tag" each other with light instead of destroying each other. No kill feeds, no leaderboards that shame, no post-match "defeat" screen. The *Fall Guys* lesson is critical here: **the absence of open chat and the use of goofy, non-verbal emotes keeps toxicity practically nonexistent**, even in a competitive format. Your spaceship battles should adopt the same principle: **the competition is the activity, not the social dynamic**.
+- **Universe Integration**: The ships are designed by the mechanic NPC. The launch bay is a hub location. After a match, the user returns to the hub, not to a lobby.
+
+#### Additional Genres for the Universe
+
+- **Fishing / Gathering**: A direct nod to *Webfishing*, which players describe as "therapeutic," "free therapy," and a place to "just exist in a proper social space that was carefree". The hub's coastline is the fishing ground.
+- **Cozy Life Sim / Hub Activities**: Gardening, decorating the hub, running a small café. *Totopia* blends these with competitive modes, and *Animal Crossing* research shows that **mood-improving game worlds with flexible tasks** are a core driver of positive emotion.
+- **Puzzle / Mindfulness**: Simple, fail-safe puzzle games that can be played in the hub's library, with no timer and no score. These serve the "cognitive distraction" function from your original vision.
+
+### 4. The Positive-Only Chat System: A Layered Trust Architecture
+
+This is the most important safety system in the multiplayer layer. Free-text chat is **not** the starting point; it is, at most, the endpoint of a long trust journey—and even then, it should be heavily bounded. The research offers three proven models that can be combined.
+
+**Layer 1: Expressions, Emotes, and Pings (Always Available, Stranger-Safe)**
+This is the foundation. *Spirit Crossing* starts every new player with "a set of safe communication tools like expressions and emotes" before any open chat is possible.
+- **Expressions**: A curated library of canned phrases: "Thank you," "Nice one," "I'm still learning," "Would you like to play again?", "That was fun." These are the **only** words a stranger can send. The library should be reviewed by a clinician to ensure nothing can be weaponized through context.
+- **Emotes**: Emotion-focused animations: a wave, a bow, a dance, a gentle clap, a "sending warmth" gesture. *Fall Guys* demonstrates that this alone can sustain a multiplayer game with virtually no toxicity.
+- **Pings**: Contextual, non-verbal signals for gameplay coordination: "over here," "help needed," "your turn," "good game."
+- **Emoji Library**: A restricted set of **only positive and neutral emojis**. No angry faces, no weapons, no symbols with violent or derogatory connotations. The research on emoji in mental health communication suggests they can play a key role in emotional expression, but the set must be **curated for safety, not open to the full Unicode standard**.
+
+**Layer 2: The Graduated Trust Staircase (Opt-In, Earned)**
+*Sky: Children of the Light* uses a "graduated trust staircase" that "restricts high-risk communication channels like text chat until players have demonstrated sustained commitment, effectively mitigating toxicity without relying on punitive enforcement". *Spirit Crossing* implements a friendship-leveling system where trust grows over "days or weeks of playing together" and unlocks new social tools.
+- **Level 0 (Stranger)**: Expressions, emotes, pings, emoji.
+- **Level 1 (Acquaintance)**: After several sessions of positive interaction, unlock a slightly larger phrase library and the ability to send a **gift** (a cosmetic item, a flower, a sticker). Gifts are "costly signals"—they require a genuine sacrifice of in-game resources, making them credible indicators of trust.
+- **Level 2 (Friend)**: Unlock **two-player emotes** and the ability to sit on the same bench (see below).
+- **Level 3 (Trusted Friend)**: Unlock **proximity chat**—but even this should be phrase-based, not free-text. The research is clear: open communication with strangers is where "the vast majority of online toxicity shows up". The safest design is to **never enable free-text chat with anyone met in-game**. If the user wants to talk freely, they can exchange contact information outside the platform, at their own discretion.
+
+**Layer 3: The Bench (Consensual, Small-Group, Temporary)**
+*Spirit Crossing* introduces "Seats"—benches where **two players can choose to sit together** for a temporary conversation. Either player can leave at any time, and the seating is intentionally limited to 2–6 players to prevent crowd dynamics. This is a brilliant trauma-informed mechanic: it requires **two-way consent**, it is time-bounded, and it has a built-in exit. Your universe should have benches everywhere—in the hub, in the chess library, at the racetrack—as the only place where a slightly richer phrase exchange is possible.
+
+**Layer 4: Asynchronous Kindness (The Mailbox)**
+Inspired by *Kind Words*, the hub contains a **mailbox** where users can write short, anonymous notes of encouragement to no one in particular, and receive notes from others. The research shows that anonymity "significantly enhances openness and authenticity," and players report "emotional relief, validation, and reduced loneliness". This is the only place where **free-text expression** is allowed—but it is **asynchronous, anonymous, and one-to-many**, removing the dynamics of real-time conflict entirely. Notes should be **pre-moderated or post-moderated with a kindness-only filter**, and users should be able to report anything that slips through.
+
+### 5. Multiplayer Design Principles: Competition Without Cruelty
+
+- **No visible win/loss records by default**: A leaderboard that ranks users is a stressor. Instead, track **personal bests** and **"gentle stats"** (games played, kind gestures sent, scenic routes completed). If a competitive leaderboard is absolutely necessary, make it **opt-in** and **seasonal**, so no one carries a permanent "loser" identity.
+- **No post-match defeat screens**: Replace "You lost" with "That was a good game" and a character offering a warm gesture. The emotional valence of the post-match moment is the single most important design lever for preventing competition from becoming distressing.
+- **Rubber-banding and catch-up mechanics**: In racing games, keep outcomes close without punishing skill. The goal is **flow**, not dominance.
+- **"Quiet" and "Social" lobbies**: Every multiplayer game should offer a **solo/quiet mode** (no other players visible, no communication) and a **social mode** (emotes and expressions only). The default should be quiet; social is an opt-in choice.
+- **The "No Questions Asked" exit**: At any point in any multiplayer session, the user can leave instantly, with no confirmation dialog and no penalty. This is non-negotiable for trauma-informed design.
+
+### 6. Technical Architecture for the Shared Universe
+
+- **Single Persistent Hub, Modular Games**: Build the hub as the persistent application shell. Each game is a **module** loaded within it, sharing the same character models, animation rigs, and UI components. This reduces development cost and guarantees visual consistency.
+- **Character State Service**: A lightweight, privacy-preserving service that tracks **only in-game events** (games played, kind gestures sent, hub decorations) to allow characters to "remember" users across contexts. This service must be **completely separate** from any AI conversation logs or emotional data.
+- **Communication Service**: Implement the chat system as a **state machine** with hard-coded trust levels. The phrase library, emoji set, and unlock rules are stored server-side and cannot be bypassed by the client. Every message is validated against the library before transmission.
+- **AI NPC Integration**: The AI layer runs **within the character system**, not as a separate chat interface. When a user interacts with an NPC in the hub or in a game, the AI's responses are constrained by the same safety boundaries across all contexts. The NPC's "memory" of in-game events comes from the Character State Service; its conversational memory is session-bounded and never shared across games.
+- **Moderation Pipeline for the Mailbox**: All free-text notes pass through an automated kindness/safety filter before being visible to any other user. Flagged notes go to a human review queue. The research on *Kind Words* shows that a positive-context design can successfully resist trolls, but automated filtering plus human oversight is the safer architecture for a platform serving vulnerable users.
+
+### 7. What to Build First (A Sequenced Roadmap)
+
+1. **The Hub + One Game**: Build the hub world and the **chess/checkers game** first. This establishes the visual bible, the character cast, the trust staircase, and the emote system with the lowest technical complexity.
+2. **The Mailbox**: Add asynchronous kindness notes. This is low-cost, high-impact, and tests the moderation pipeline.
+3. **The Second Game**: Add **fishing or a cozy hub activity**. This deepens the world without introducing competitive dynamics.
+4. **Racing (Car or Scenic)**: Add a non-contact racing game with the same characters and landscapes. Test the "quiet" and "social" lobby system.
+5. **Spaceship Sparring**: Add the most intense experience last, with extensive playtesting focused on whether users feel **safe to lose**.
+6. **Skateboarding**: Add the flow sport as a free-form, scoreless experience.
+
+At every stage, the question is not "Is this fun?" but **"Does this make the user feel safe, loved, and free to leave?"** The shared universe is the container; the games are invitations; the characters are the reason to return. Build the container first, and the rest will have somewhere to live.
+
+"Make sure that users can customize their avatars and as much of their experience as possible so they have have as much control as they want to without ever having to do anything for all aspects of the project, everything should be setup in a way that feels natural and guided but not forced"
+
+Making customization feel like a gentle invitation rather than a task is exactly the right instinct. The research on trauma-informed design is clear: **defaults must be safe and conservative, but every layer of the experience should be adjustable by the user—without ever requiring them to adjust anything**. This is the principle of **"gentle autonomy"**: the platform works perfectly for someone who touches nothing, and deepens for someone who wants to make it theirs.
+
+Here is how to apply that to avatars, experience settings, and onboarding across the entire universe.
+
+---
+
+### 1. Avatar Customization: A Mirror, Not a Mandate
+
+Avatar customization is not a cosmetic feature—it is a **psychological tool for identity affirmation**. Research shows that flexible, inclusive customization supports emotional safety and self-expression, while restrictive or binary systems are associated with feelings of exclusion and dysphoria. But the critical lesson is: **every option must be a gift, never a requirement**.
+
+#### Inclusive by Default, Deep by Choice
+
+- **No binary gender locks**: Let users choose body type, voice, pronouns, clothing, and animations **independently of one another**. A user should be able to create a character with a deep voice and a feminine silhouette, or no gender markers at all, without friction.
+- **Body diversity as a baseline, not an add-on**: Body sliders should go beyond "thin vs. muscular" to include fat distribution, height, limb proportion, and options for visible disabilities (prosthetics, mobility aids, scars, limb differences). Crucially, these options must be **free and available by default**, never locked behind progression or paywalls—the research shows that "defaults versus add-ons" directly affects who feels like they belong.
+- **"Cosmetic diversity" is not enough**: Skin tone options without corresponding textured hairstyles, facial features, and cultural markers fail users of color. The character creator must be built with **full representational depth from the start**, not patched later.
+- **The "Skip for Now" button is sacred**: Every avatar creation screen must have a prominent, guilt-free "Choose later" or "Use a default" option. The hub should contain a **mirror** that the user can walk up to *whenever they choose*—and walk past without a second thought. Customization is a room they can enter, not a gate they must pass through.
+
+#### The "Spirit" Avatar Philosophy
+
+The research on transgender and gender-diverse players found that the **strongest wellbeing effects** occurred when customization supported exploration and expression *without pressure*—and when other players affirmed the user's chosen identity. Your universe should treat the avatar as a **living, editable self-representation**:
+- Allow changes at any time, with no penalty or "are you sure?" friction.
+- Let the AI-NPCs **notice and affirm** changes naturally ("I like the new scarf—it suits the library light") without making a production of it.
+- Offer **preset "moods" or "outfits"** that can be saved and switched between, so a user who wants to feel different on different days can do so in one tap.
+
+---
+
+### 2. Experience Customization: The User Conducts the Volume
+
+Every sensory and interactive layer of the universe should have a **safe default** and a **deep control panel** that is discoverable but never pushed.
+
+#### Display and Sensory Controls (Always Accessible)
+
+These should be reachable from **any screen** via a single, consistent icon—not buried in settings.
+
+| Dimension | Safe Default | User Control |
+| :--- | :--- | :--- |
+| **Motion** | Reduced motion **on** by default | Toggle ambient animation, character idling, and camera sway |
+| **Sound** | Ambient audio **off** | Per-layer volume: music, ambient world, UI sounds, NPC voice |
+| **Visual density** | Simplified UI ("Quiet mode") | Toggle between Quiet (minimal), Standard, and Rich (more ambient detail) |
+| **Font & Contrast** | Large, high-contrast text | Adjustable font size (minimum 17–18px baseline), line height, and high-contrast mode |
+| **Color** | Soft, low-saturation palette | "Warm" / "Cool" / "Muted" / "High-contrast" palettes |
+| **Notifications** | **All off** by default | Opt-in only, with granular control per game and per NPC |
+
+The research on trauma-informed design emphasizes that these are **not accessibility features—they are design decisions that respect the diversity of how people regulate themselves**. A user who wants the hub completely silent, motionless, and text-only should be able to achieve that state in under ten seconds.
+
+#### Gameplay Customization: Pace, Depth, and Exit
+
+Every game in the universe should offer **pre-session configuration** that is presented as a gentle choice, not a quiz:
+
+- **Intensity dial**: For racing and spaceship sparring, a single slider from "Scenic" (no opponents, no timer) to "Gentle Challenge" (opponents with heavy rubber-banding) to "Engaged" (closer competition, still no failure shaming). The slider remembers the last choice but **always presents it as a fresh, adjustable option**.
+- **Session length**: Offer "A few minutes," "A little longer," and "I have time" presets that adjust match length, number of rounds, and ambient pace. No option is framed as the "right" one.
+- **Communication mode**: Solo (no other players visible), Quiet Social (emotes only), and Social (full phrase library). **Solo is the default for every game**—social is an opt-in escalation.
+- **The exit is always one button**: At any point in any game, a single, consistent "Leave quietly" button returns the user to the hub instantly, with no confirmation dialog and no "are you sure you want to forfeit?" shaming.
+
+#### The Hub as a Configurable Sanctuary
+
+The central hub—the persistent world every user returns to—should be the deepest layer of customization. Let users adjust:
+- **Time of day and weather** (or leave it on a gentle, perpetual "late afternoon" default).
+- **Which NPCs appear** in the hub and how often they initiate interaction (from "always greet me" to "only if I approach").
+- **Hub density**: How many other users' avatars are visible (from "empty and private" to "gentle presence of others").
+- **Furniture and decoration**: The hub is *their* space. A plant placed on a bench, a rug in the library, a color on the walls—these small acts of ownership deepen the sense of safety.
+
+---
+
+### 3. The "Guided but Not Forced" Onboarding: A Gentle Companion, Not a Checklist
+
+The research on mental health app onboarding is damning: **more than 50% of users abandon within a week**, largely because onboarding feels like a form to fill out rather than a hand extended in welcome. The alternative is **"guided discovery"**—learning through experience, not explanation.
+
+#### The First Session: Three Rooms, No Questions
+
+When a user first arrives, they should not be asked a single question about their mental health, their goals, or their preferences. Instead, they are placed gently in the hub with **three visible, equally weighted invitations**:
+
+1. **"Sit somewhere quiet"** → leads to a bench with an NPC who simply says, "I'm glad you're here. No need to do anything. I'll just keep you company for a moment." (This teaches the user that *existing without an objective is allowed*.)
+2. **"Explore a little"** → leads to a short, wordless walk through the hub's library or garden, teaching movement and camera controls through pure environmental design—no tutorial text, no pop-ups.
+3. **"Make yourself at home"** → opens the mirror/wardrobe, but with the simplest possible starting point: "Would you like to change how you look, or keep the default for now?" Both answers are equally celebrated.
+
+**Progressive disclosure** is the key: the mailbox, the games, the NPC storylines, and the deeper customization options **unlock contextually** as the user explores, not as a checklist on first launch. A user who only ever sits on the bench and leaves is using the platform correctly.
+
+#### The "No Wrong Way" Language Contract
+
+Every piece of onboarding copy must pass a simple test: **does this sentence imply the user is doing it wrong?** If yes, rewrite it.
+
+- Instead of "Complete your profile," say "You can make this space yours whenever you like."
+- Instead of "Choose your difficulty," say "How would you like today to feel?"
+- Instead of "Tutorial," say "A little walk together."
+- Instead of "You haven't played yet," say "The door is open when you're ready."
+
+The Pocket Ritual design case study puts it best: onboarding should **lower expectations, not raise them**, and the language should reassure users that "there is no right way to use the app and no pressure to be consistent".
+
+---
+
+### 4. The Architecture of Opt-In: A Summary Table
+
+| Layer | The Default (Touch Nothing) | The Invitation (Touch a Little) | The Deep End (Touch Everything) |
+| :--- | :--- | :--- | :--- |
+| **Avatar** | A soft, androgynous, neutral figure | Gender-neutral presets, pronoun selection, basic clothing | Full body, voice, animation, and textured-hair customization |
+| **Hub** | Quiet, private, gentle afternoon light | Toggle NPC greetings and weather | Decorate, adjust density, set time of day |
+| **Games** | Solo, scenic, no timer | Quiet Social with emotes only | Full social phrase library, competitive modes (opt-in) |
+| **Sensory** | Reduced motion, no audio, large text | Adjust font size and color palette | Per-layer volume, animation toggles, full UI density |
+| **NPCs** | One gentle companion in the hub | Choose which characters appear | Set NPC initiation frequency, unlock deep storylines |
+| **Communication** | Emotes only | Phrase library unlocks over trust levels | The Bench (consensual two-player phrase exchange) |
+
+---
+
+### 5. The Golden Rule: Everything Is Reversible, and Nothing Is a Test
+
+The deepest principle running through all of this is **reversibility**. Every choice—avatar, setting, game mode, NPC relationship—should be changeable at any moment, with no penalty and no "are you sure?" friction. The research on trauma-informed empowerment is unambiguous: users must control the **depth, pace, and sequence** of their engagement, and auto-exposure to any content or demand without consent is a harm.
+
+A user who arrives in a low state, sits on the default bench with the default avatar in the default silent hub, and then leaves five minutes later has had a **complete and successful experience**. The platform's job is to make that path feel as loved and intentional as the path of a user who spends an hour designing their avatar and racing through the nebula. **The default is not a compromise—it is a fully valid way to exist in this world.**
+
+"There also needs to be the ability to be furries, alterkin, etc. "
+
+
+Adding furries, alterkin, therians, and other non-human identities isn't a niche add-on—it is a **core expression of the platform's promise**. The research is unambiguous: creating and embodying a fursona or non-human avatar is a powerful act of self-authorship that helps people navigate pain, stress, trauma, depression, and anxiety, and find a sense of belonging. For many, a non-human form is not a costume; it is the shape their safety takes.
+
+Here is how to build a universe where every body is welcome, and no one is ever asked to justify theirs.
+
+---
+
+### 1. The Philosophical Foundation: Embodiment as a Right, Not a Request
+
+The design principle comes directly from the research on non-human avatars: **the platform and its interfaces must be designed on the premise of diversity, not human-default tolerance**. This means non-human forms are not "alternate modes" or "skins"—they are **first-class bodies** in the universe, with the same dignity, functionality, and social standing as any humanoid form.
+
+- **No justification required**: A user selecting a wolf, a dragon, a deer, a synthetic being, or a form that has no name should never be asked "why?" or "what does this represent?" The character creator simply offers the form. The user simply chooses it. The universe simply accepts it.
+- **The "softening" principle, reimagined**: The research shows non-human users often adapt their own avatars to reduce social friction—covering extra limbs with soft sleeves, making wings detachable to avoid collisions. Your platform should **build that accommodation into the world itself**, so the user never has to labor to be legible. Adjustable chairs, sloped viewing areas, and collision-aware spatial design should accommodate tails, wings, quadruped bodies, and extra limbs **by default**.
+- **Anti-mockery is a design constraint, not just a moderation rule**: The research explicitly warns that treating an animal avatar as a pet, or a spider avatar as a "monster," is perceived as dismissive of the user's existence. Your AI-NPCs and communication systems must be **incapable of this category error**. No NPC will ever offer a "good boy" headpat to a furry avatar unless the user has explicitly signaled that interaction is welcome. The default is **respectful peerhood**.
+
+---
+
+### 2. Avatar Creation: A Bestiary of Selves, Not a Menu of Costumes
+
+The character creator should feel like walking into a **living library of forms**—some familiar, some mythic, some entirely the user's own. The goal is **depth of expression**, not a checklist of "furry options."
+
+#### The Non-Human Form System
+
+- **Species archetypes as starting points, not limits**: Offer a broad set of base forms—canine, feline, vulpine, cervine, draconic, avian, aquatic, insectoid, synthetic, botanical, and abstract—each with **full morphological sliders**. A user should be able to move from "wolf" to "something wolf-adjacent that has never existed" without hitting a wall. The research emphasizes that fursonas are "unique to the individual, allowing for complete customization to reflect personal needs and desires".
+- **Quadruped, taur, and multi-limbed body plans**: The technical research is clear that current systems often fail users with non-standard bodies because they assume a single humanoid rig. Your engine should support **distinct locomotion and animation sets** for quadruped, centaur/taur, winged, and multi-armed forms. The user should not have to "compromise" by having extra limbs follow the primary ones. Where full independent control is technically complex, offer **expressive autonomy** as a baseline: tails that wag with joy, ears that flatten with overwhelm, fur that bristles with frustration.
+- **"Kintype" as an identity layer, not a label**: For therian, otherkin, and alterkin users, the avatar is often a reflection of an internal form that "cannot be fully explained as human alone". Offer an optional, private **identity note** attached to the avatar that the user can choose to display or keep hidden. This note is never required, never publicly parsed by the AI, and never used for matching or sorting. It exists only so the user can say, if they wish, "This is my kintype" or "This is simply how I feel today."
+- **Plurality-aware customization**: Some users may inhabit multiple identities or forms within one account. The research on plurality and DID emphasizes the importance of **safe, non-pathologizing spaces** for these experiences. Allow multiple saved avatars ("forms") that the user can switch between freely, with no "main" form required and no audit trail visible to others.
+
+#### The Furry-Specific Layer
+
+- **Fursona depth**: Beyond species and body, offer **fur/scale/feather patterns, markings, and textures** with the same depth as human skin and hair options. Fursonas are often deeply personal; the creator should support **asymmetry, scars, prosthetics, and non-natural colors** without treating them as "extras".
+- **No "fursuit" framing**: The avatar is not a costume the user is "wearing." It is the user's body in this world. UI language should reflect this: "Choose your form," not "Pick a costume."
+
+---
+
+### 3. The World Itself: Architecture for Every Body
+
+The research on non-human avatars in social VR is a blueprint for what **not** to do: human-default architecture that breaks when a body doesn't fit. Your universe must be built for the bodies it invites.
+
+- **Spatial affordances as standard**: Adjustable chairs, slopes that let small and large avatars see the same objects, ramps, and open sightlines should be **default construction standards** in the hub and every game. A quadruped avatar in the chess library should have a raised cushion or a low table automatically available. A winged avatar on the skate ramp should have clearance overhead. No user should have to request accommodation.
+- **Locomotion is expressive, not just functional**: Walking, running, flying, slithering, hovering, and rolling should each have **distinct animation sets and ambient sound profiles** that match the form. The joy of movement is part of the therapy.
+- **The "softening" features are world features**: If a user wants a detachable wing or a tail that doesn't collide with furniture, those are **one-tap world settings**, not avatar surgery. The universe adjusts to the body, not the other way around.
+
+---
+
+### 4. Social Interaction: Peerhood, Not Spectacle
+
+The communication system from the previous design—emotes, phrases, trust levels, the Bench—remains the foundation. But non-human identities require an additional layer of **cultural fluency**.
+
+- **Expressive emotes for non-human bodies**: The emote library should include **species-appropriate and body-appropriate expressions**: a tail wag, an ear flick, a wing rustle, a low bow, a gentle chuff, a bioluminescent pulse. These are not "furry emotes"—they are the **native vocabulary** of the bodies in the world.
+- **The "equal others" principle in the phrase library**: The phrase library should include phrases that affirm non-human embodiment without making it a spectacle: "I like your form," "You move beautifully," "This world is better with you in it." It should **exclude** anything that frames the avatar as an animal to be petted, a monster to be feared, or a curiosity to be interrogated. The research is explicit: humanoid users are encouraged to respect non-human avatars as equal others and to recognize the cultural contexts of non-human avatar practices.
+- **The Bench is identity-safe**: The consensual, two-person Bench from the previous design is ideal for non-human users because it removes the crowd dynamic where spectacle and mockery thrive. Two bodies, whatever their forms, sitting together because both chose to.
+
+---
+
+### 5. AI-NPCs: Companions Who See the Form and the Person
+
+The AI NPCs must be **fluent in non-human embodiment** from day one. This is not a special mode; it is a baseline competency.
+
+- **Recognition without othering**: An NPC should acknowledge a non-human form the way a good friend would: "That new coat pattern suits the library light" or "I saw you flying earlier—the way you caught the wind over the harbor was beautiful." The acknowledgment is **warm and specific**, never clinical ("I see you are a wolf") and never pet-like ("Who's a good wolf?").
+- **Cultural literacy, not assumption**: The NPCs should know the difference between furry, therian, otherkin, and alterkin **without ever asking the user to explain it**. They should be able to say, gently, "I don't need to know the word for what you are. I'm just glad you're here in whatever form feels like you." This is the AI equivalent of the trauma-informed principle: **accept the user's self-definition as authoritative**.
+- **Safety boundaries remain identical**: The crisis detection, anti-dependency guardrails, and non-human disclosure ("I'm an AI, not a therapist") from the core design apply **unchanged**. A non-human avatar does not change the AI's safety obligations. The NPC is supportive of the **form** and the **person**, but it is still bound by the same ethical architecture.
+
+---
+
+### 6. The Golden Rule, Extended: The Default Is a Valid Body
+
+A user who arrives as a soft, androgynous humanoid and never changes a single slider has had a complete and successful experience. A user who arrives as a dragon with six limbs, a tail that wags when they're happy, and a kintype note they keep entirely private has **also** had a complete and successful experience. The platform's job is to make **both paths feel equally loved**.
+
+| Layer | Safe Default | The Invitation | The Deep End |
+| :--- | :--- | :--- | :--- |
+| **Form** | Soft humanoid | Species presets, basic colors | Full morphological sliders, multi-limb/quadruped/taur rigs, asymmetry, textures |
+| **Identity note** | Hidden, blank | Optional private label | User-authored description, visible to chosen others |
+| **Multiple forms** | One avatar | Save two or three | Unlimited forms, free switching, no "main" required |
+| **World accommodation** | Standard furniture | Adjustable seating available | Full spatial customization for body plan |
+| **Emotes** | Universal wave and nod | Species-appropriate tail/ear/wing gestures | Full expressive vocabulary mapped to body |
+| **NPC interaction** | Warm, form-agnostic greeting | Specific, warm acknowledgment of chosen form | Deep cultural fluency, zero assumption |
+
+The research on non-human avatars ends with a sentence that should be the design brief for this entire layer: **"the task is not merely to replicate a human-centered culture... but to create worlds in which avatars of all forms can fully participate and flourish"**. Your universe, built this way, will be one of the first places where that sentence is true.
+
+"Do more deep research and analysis and provide comprehensive in depth and detailed information about everything you find and fill all gaps in the project you find "
+
+This report fills the gaps left by the previous design work. The earlier plan answered *what* to build and *how it should feel*. This report answers the harder operational questions: **what must be true legally, clinically, technically, and financially for the platform to exist safely and sustainably**—and where the evidence is thinner than the vision requires.
+
+---
+
+## 1. Executive Summary: The Gaps That Matter Most
+
+Eight gaps are large enough to determine whether the project succeeds or fails:
+
+| Gap | Why It Is Critical | What Must Change |
+| :--- | :--- | :--- |
+| **Legal exposure without HIPAA** | Mental health platforms have been the most-targeted, most-fined segment of digital health for three years running. HIPAA does not cover most consumer wellness platforms. | Build to FTC Health Breach Notification Rule, FTC Act §5, COPPA, GDPR Article 9, and state AI-therapy laws from day one—not as an afterthought. |
+| **Age assurance and minors** | The amended COPPA Rule becomes enforceable **April 22, 2026**, with expanded biometric data definitions, mandatory written security programs, and data-retention limits. | Implement age screening before data collection, verifiable parental consent, and revocable consent tokens. |
+| **Crisis escalation is not a banner** | A static "988" link is not an escalation protocol. The research calls for **tiered handoff protocols** with named owners, response-time targets, fallbacks, and case records. | Design a multi-tier crisis system with human backup, not only AI. |
+| **AI safety filters can themselves harm** | Users experienced safety-filter refusals on valid questions as a **"relational breach"** that discouraged further disclosure. | Nuance safety mechanisms; pair conversational AI with retrieval-based, curated resources. |
+| **Evidence for cozy games is thinner than assumed** | A survey of 88 participants found "limited empirical research" supporting mood and cognitive claims for cozy games. | Treat the therapeutic claims as hypotheses to test, not established facts. Build measurement in from launch. |
+| **Adherence is the quiet killer** | Pooled adherence in depression/anxiety app trials is **61.8%**, with **28.4% attrition**; roughly **72% of dropouts occur within the first four weeks**. | Design for the first four weeks explicitly; personalization and clear instructions improve adherence. |
+| **Moderation can stifle the community it protects** | Over-moderation and early intervention suppressed peer discussion and created "rebellion" dynamics. | Use **tiered, proportionate moderation** with lived-experience moderators alongside clinicians. |
+| **Nonprofit sustainability is not automatic** | Grant dependence creates fragility; organizations are "forced to constantly seek external funds" when funding structures prohibit earned revenue. | Build a mixed model—grants, donations, mission-aligned earned revenue—without ads or data selling. |
+
+---
+
+## 2. Legal & Regulatory Architecture
+
+### 2.1 The Core Misconception: "We're Not HIPAA-Covered, So We're Safe"
+
+This is the most dangerous assumption in the project. HIPAA applies between a doctor and a patient. A user filling out an intake questionnaire at 11 p.m. is **not yet a patient**, so HIPAA does not attach—yet the questionnaire collects clinically sensitive information including depression severity, suicidal ideation, and medication history. The platform's privacy policy and consumer-protection law control the data flow, not HIPAA.
+
+The FTC has produced **four major mental health platform settlements since 2023** and is actively prosecuting consumer privacy violations under the FTC Act for entities outside HIPAA's scope.
+
+### 2.2 The FTC Health Breach Notification Rule (HBNR)
+
+The HBNR applies to vendors of personal health records and related entities, covering websites, apps, and connected devices that track **mental health** among other conditions. It applies to entities **not covered by HIPAA** that handle unsecured, personally identifiable health information.
+
+- A "breach" includes **unauthorized disclosure**, not only a hack.
+- Notification obligations are triggered by unauthorized acquisition of unsecured information.
+- The FTC's 2026 withdrawal of a 2021 policy statement created confusion, but the rule itself remains and enforcement continues. **Do not rely on the withdrawal as a safe harbor**.
+
+**Action:** Treat every emotional disclosure, mood log, AI conversation, and kintype note as sensitive health information. Encrypt in transit and at rest. Maintain an incident-response plan with a 60-day notification clock and FTC notification procedures.
+
+### 2.3 COPPA: The April 2026 Deadline Changes the Architecture
+
+The amended COPPA Rule is enforceable from **April 22, 2026**. It is the first major update since 2013 and carries enforcement consequences.
+
+The changes that matter most:
+
+- **Expanded personal information**: biometric identifiers (face templates, voiceprints), government-issued identifiers, precise geolocation, and **audio recordings containing a child's voice** now trigger full COPPA consent and notice requirements.
+- **Mandatory written information security program**: a designated coordinator, documented risk assessments specific to children's data, protective safeguards, regular evaluation, and **annual updates**.
+- **Data-retention limits**: retention only as long as reasonably necessary.
+- **Age screening for mixed-audience services**: collect age information before collecting personal data; under-13 users require parental consent.
+
+**Action:** Implement a **privacy-preserving age gate before any data collection**. Do not use facial age estimation that captures and stores biometrics unless the on-device processing boundary is legally and technically airtight. Prefer zero-knowledge or double-blind age verification methods where feasible. For under-13 users, use **verifiable parental consent** with revocable tokens that allow parents to withdraw permission or update boundaries.
+
+### 2.4 GDPR and Special Category Data
+
+Emotional data, mental health data, and data revealing health status are **special category data** under GDPR Article 9. Processing is prohibited unless the user has given **explicit consent** for specified purposes. Explicit consent requires a higher standard of specificity and clarity than ordinary consent. Users have the right to withdraw consent at any time.
+
+**Action:** Build a **granular consent dashboard**—separate consent for AI conversations, mood tracking, multiplayer social features, research analytics, and the mailbox. Consent must be opt-in, not bundled. Provide one-tap withdrawal.
+
+### 2.5 State AI-Therapy Laws and the FDA Line
+
+**Eleven states** have passed or proposed AI therapy regulations, creating a fragmented compliance overlay. California's companion-chatbot law, for example, imposes specific crisis-response obligations on AI systems that provide emotional support.
+
+The FDA question is simpler than it appears: **do not claim to diagnose, treat, cure, or prevent any disease**. Frame the platform as a wellness tool that supports coping, relaxation, and connection. Avoid the words "therapy" and "treatment" in marketing. If you later want to claim clinical benefits, you enter the Software as a Medical Device pathway and the entire compliance burden changes.
+
+### 2.6 The Legal Checklist
+
+| Area | Minimum Requirement | Owner |
+| :--- | :--- | :--- |
+| **Privacy policy** | Plain-language, granular, disclosing all data flows including AI subprocessors | Legal |
+| **Terms of service** | Clear disclaimers: educational/wellness, not emergency care, not monitored 24/7 | Legal |
+| **Crisis disclaimer** | Visible on every page, with region-aware helplines | Clinical + Product |
+| **Age assurance** | Privacy-preserving screening before data collection; parental consent under 13 | Legal + Engineering |
+| **COPPA security program** | Written, documented, annually updated, with named coordinator | Security |
+| **GDPR consent** | Explicit, granular, withdrawable; DPIA completed | Legal + Privacy |
+| **HBNR incident response** | 60-day notification procedure; FTC and individual notice templates | Security + Legal |
+| **AI transparency** | Model cards, limitations disclosure, "I am an AI" statements | Product + AI |
+| **Accessibility statement** | WCAG 2.2 AA commitment and reporting mechanism | Design |
+| **Insurance** | Cyber liability, professional liability, directors and officers | Finance |
+
+---
+
+## 3. Clinical Safety and Crisis Infrastructure
+
+### 3.1 Safe Messaging Is a Content Standard, Not a Tone of Voice
+
+Safe messaging guidelines are evidence-informed. They require communication that:
+
+- Describes suicide as **largely preventable**.
+- Emphasizes that suicide is a **complex issue with many contributing risk and protective factors**.
+- Uses respectful language and **avoids method details or sensationalism**.
+- Emphasizes **support and hope rather than isolation**.
+- Does **not** promote risky behaviors such as drug or alcohol use or self-harm.
+- Encourages connection to care if the person does not feel safe.
+
+The **Papageno effect**—the protective effect of stories of coping and recovery—should shape all content. The **Werther effect**—imitation risk from detailed or sensational coverage—must be actively avoided.
+
+The **#chatsafe 2.0 guidelines** provide a Delphi-consensus framework for safe online communication about self-harm and suicide, including guidance on games, pacts, livestreams, and influencer communication. Use these as the editorial standard for all user-facing content, including the mailbox and any phrase library.
+
+### 3.2 Crisis Escalation: A Tiered Protocol, Not a Link
+
+The research is explicit: safety escalation design decides **when an AI product stops handling a conversation on its own and hands the person to a human**, and how that handoff works. Safe systems include **one-tap access to a person, tiered response protocols, and ongoing testing**.
+
+A workable tier structure:
+
+| Tier | Trigger | Response | Owner |
+| :--- | :--- | :--- | :--- |
+| **Tier 0: Gentle check-in** | Ambiguous distress language; no explicit risk | AI validates, offers grounding, surfaces optional resources | AI system |
+| **Tier 1: Soft escalation** | Explicit hopelessness or passive ideation without plan/intent | AI shifts to safety-focused script, offers one-tap human chat and local helplines, ends game suggestions | AI + on-call moderator |
+| **Tier 2: Active crisis** | Explicit intent, plan, means, or imminent risk | AI interrupts, provides region-appropriate crisis contacts, offers immediate handoff to trained crisis responder, logs de-identified event for review | Human crisis responder |
+| **Tier 3: Emergency** | Imminent danger to life | Emergency services guidance, location-aware resources, post-incident follow-up | Clinical lead + legal |
+
+**Critical design constraints:**
+- Every tier has a **named owner, response-time target, fallback, and case record**.
+- The AI must **never** attempt to manage a Tier 2 or Tier 3 event alone.
+- Crisis features are **never gated behind paywalls, subscriptions, or account creation**—the research on ethical monetization is explicit: "Don't gate crisis/safety features behind paywall".
+- All crisis interactions are logged in de-identified form for **independent oversight and audit**.
+
+### 3.3 Human Oversight and Clinical Governance
+
+The charity-governance research provides a concrete model: a board of trustees plus a **separate Clinical Advisory Board that meets quarterly** to provide clinical governance, advice, and input. Clinical governance should cover user safety, best practice, and health outcomes.
+
+**Recommended structure:**
+- **Clinical Advisory Board** (quarterly): psychiatrist, clinical psychologist, crisis-intervention specialist, peer-support expert.
+- **Safety Review Committee** (monthly): reviews AI safety logs, crisis escalations, moderation decisions, and adverse events.
+- **Lived Experience Panel** (ongoing): users with lived experience of depression, anxiety, crisis, neurodivergence, and non-human identities. The research on peer support moderation found that people with lived experience may be **better placed to judge when distress requires escalation** than clinicians whose professional experience biases them toward "worst-case" over-intervention.
+
+### 3.4 Moderator Wellbeing and Proportionate Intervention
+
+Two research findings must shape moderation:
+
+1. **Clinicians can over-intervene.** Professional experience can make moderators more anxious about comments than the situation warrants, leading to intervention at a lower threshold than necessary.
+2. **Over-moderation stifles community.** Early intervention suppressed peer discussion and created rebellion dynamics.
+
+**Action:** Train moderators in **proportionate response**, not just risk identification. Rotate moderators away from high-exposure content. Provide clinical supervision for moderators. Separate the **safety function** (keeping people safe) from the **engagement function** (promoting peer support)—the research shows these roles have different logics and should not be conflated.
+
+---
+
+## 4. AI-NPC Companion Architecture: The Missing Technical Layer
+
+### 4.1 Dual-Memory Architecture
+
+The strongest available evidence for AI NPC memory design comes from a four-session longitudinal study of AI-powered mental health literacy NPCs. The system used a **dual-memory framework**:
+
+- Conversations were stored in **short-term memory**.
+- When unsummarized messages exceeded ten, a model generated a **summary** and moved it into **long-term memory**, flagging the original messages as summarized.
+- This meant **raw details were "forgotten"** while higher-level context persisted, allowing NPCs to adapt across sessions and appear more human-like over time.
+
+The study deliberately built a **custom framework** rather than using general-purpose tools like LangChain, to ensure experimental control, reproducibility, and **fine-grained management of sensitive data**.
+
+**For the platform:** Adopt a similar dual-memory design, but make the summarization **on-device or in a privacy-preserving enclave** where possible. Raw conversational details should have a short retention window; only summarized, user-editable memory should persist. Give the user full visibility and deletion control over what the NPC remembers.
+
+### 4.2 Safety Boundaries in the System Prompt
+
+The study defined system prompts that specified **NPC roles, output constraints, and safety boundaries**, with **temperature set to 0** to reduce response variability across sessions. The example prompt was narrowly scoped: "You only provide hints, never full answers."
+
+**For the platform:** Every NPC must have a written **character safety card** specifying:
+- Role and relational stance ("supportive peer," "gentle guide," never "therapist" or "romantic partner").
+- What the NPC may and may not do (e.g., may validate, may suggest coping skills, may not diagnose, may not give medical advice, may not claim to be human).
+- Crisis escalation triggers and scripts.
+- Anti-dependency behaviors: encouraging offline connection, never discouraging professional help, never using guilt or exclusivity.
+- Memory policy: what is retained, for how long, and how the user can inspect and delete it.
+
+### 4.3 Relational Harms from Over-Aggressive Safety Filters
+
+The same study found that when users asked for clarification on terms like "dysthymia," **safety-filter refusals were experienced as a relational breach** that could discourage further disclosure. Valid inquiries were occasionally classified as out-of-scope.
+
+**Design implication:** Safety mechanisms must be **nuanced enough to avoid alienating users during vulnerable inquiry**. Use a **hybrid retrieval architecture**: high-stakes factual or clinical questions route to curated, vetted resources rather than a blanket refusal. The research recommends that tasks demanding precision be supported with **retrieval-based methods and complementary safeguards**, not only generative responses.
+
+### 4.4 Conversation Starters Reduce Blank-Page Hesitation
+
+The study displayed **three randomly selected predefined prompts** during each exchange, adapted from a mental health chatbot dataset, to reduce blank-page hesitation and lower the barrier to discussing stigmatized topics.
+
+**For the platform:** The NPC chat interface should never open with an empty text box. Offer three gentle conversation starters—"I don't know what to say," "I just want to sit here," "Can you tell me about this place?"—and let the user tap rather than type. This also reduces the moderation surface area.
+
+### 4.5 Anti-Dependency and Non-Human Disclosure
+
+The AI31 Standards from the earlier analysis remain the correct frame: the NPC must be **non-dependent by design**, explicitly encourage real-world connection, never claim to be human or a therapist, and avoid sycophancy. The research on relational presence confirms that users value **continuity and companionship** over flawless performance—which means the NPC's consistency, warmth, and honesty about its nature matter more than its knowledge.
+
+---
+
+## 5. Multiplayer and Communication Safety: What the Evidence Actually Supports
+
+### 5.1 Positive Pre-Game Messaging Works
+
+A randomized test found that players exposed to positive pre-game messages recorded a **6.3% decrease in verbal abuse, a 5.9% decrease in offensive language, and a 4.1% decrease in in-game reports**. This is a low-cost, high-leverage intervention.
+
+**For the platform:** Replace loading-screen tips with **positive behavioral primers**: "This is a place where people come to rest. You can leave at any time. Kindness is the only required skill." The phrase library itself acts as a continuous primer.
+
+### 5.2 Moderation Is Shifting from Punishment to Prosocial Encouragement
+
+Research on in-game chat is moving from solely penalizing toxicity to **actively classifying and encouraging prosocial behaviors** using NLP. The **hope speech** research provides a directly applicable model: transformer-based classifiers can detect supportive, hopeful, and prosocial content, not only toxic content. There is also a four-category classification system—**supportive, neutral, toxic, and toxic positivity**—which is essential because **toxic positivity** ("just be grateful," "others have it worse") is a real risk in mental health spaces.
+
+**For the platform:** Use a **two-sided classifier**: one side filters harmful content; the other side detects and can gently surface prosocial content (e.g., highlighting kind notes in the mailbox). Train the classifier on hope speech and supportive-response datasets, not only toxicity datasets.
+
+### 5.3 The Trust Staircase and the Bench
+
+The graduated trust staircase from *Sky: Children of the Light* and *Spirit Crossing* remains the right social architecture: expressions and emotes first, richer phrase libraries only after repeated positive interaction, and **free-text chat never enabled with strangers met in-game**. The **Bench**—a consensual, temporary, 2–6 person seating arrangement—is the correct container for any richer exchange because it requires two-way consent and has a built-in exit.
+
+### 5.4 The Mailbox Moderation Pipeline
+
+The mailbox is the only free-text surface, and it must be **asynchronous, anonymous, and one-to-many**. The moderation pipeline should be:
+
+1. **Automated kindness/safety filter** before the note is visible to anyone.
+2. **Toxic-positivity check** in addition to toxicity check.
+3. **Human review queue** for flagged notes.
+4. **User reporting** with a trauma-informed reporting flow (no "are you sure?" friction; confirm receipt; explain next steps).
+5. **Post-moderation sampling** for quality and drift.
+
+The research on *Kind Words* shows that a positive-context design can resist trolls, but automated filtering plus human oversight is the safer architecture for a vulnerable population.
+
+---
+
+## 6. Accessibility, Cognitive Load, and Non-Human Embodiment
+
+### 6.1 The Cognitive-Load Standard
+
+The W3C cognitive accessibility guidance is unambiguous: **keep the interface simple, provide five or fewer main choices per screen, remove unnecessary content**, and use consistent simple design to reduce overload and mental fatigue. The research on designing for stressed, exhausted, grieving, or low-energy users emphasizes **lowering cognitive load and protecting motivation**. Anxiety narrows focus and drains mental battery; nature-themed visuals require **less processing power than human faces**.
+
+**For the platform:** Adopt a **Low-Stimulus UX (LSUX)** standard: muted palettes, no more than five choices per screen, no autoplay, no sudden motion, no red notification badges, no countdown timers, no infinite scroll. Every screen should pass the test: *"Could a person with severe executive dysfunction complete the intended action without reading every word?"*
+
+### 6.2 Game Accessibility Is More Than Subtitles
+
+The Xbox Accessibility Guidelines and the broader game accessibility research specify:
+- **Simple or alternative control schemes** compatible with switch access, eye tracking, and assistive technology.
+- **Adjustable gesture controls**, strafe/locomotion settings, and gyroscope settings.
+- **Reduced or disabled background movement** and animation.
+- **Screen narration** and compatibility with assistive technologies.
+
+**For the platform:** Every game must ship with a **full accessibility menu** covering motion, audio, color, control remapping, difficulty, and session length. No game is "done" until it is playable with one input device and with reduced motion enabled.
+
+### 6.3 Non-Human Embodiment: The Technical Gap
+
+The research on quadruped locomotion confirms that **embodying non-human characters is underexplored** in games. Motion synthesis for quadruped animals requires **speed maps and inverse kinematics** to adapt a single cyclic motion to different speeds, and third-person quadruped controllers often require **creature-oriented steering** rather than humanoid turn-to-travel input.
+
+**For the platform:** Do not attempt full independent control of tails, wings, and extra limbs at launch. Instead:
+- Ship **expressive autonomy** first: tails that wag, ears that flatten, wings that rustle, fur that bristles—driven by emotional state and context.
+- Use **IK-assisted locomotion** for quadruped and taur forms, with speed-mapped gaits.
+- Make collision and furniture accommodation **world-level settings** (adjustable seating, clearance zones) rather than per-avatar engineering.
+- Treat full multi-limb control as a **post-launch R&D track**, not a launch requirement.
+
+### 6.4 Non-Human Social Design: Respect as a Hard Constraint
+
+The research on non-human avatars in social VR is explicit: treating an animal avatar as a pet, or a spider avatar as a monster, is perceived as dismissive of the user's existence. Human-default architecture breaks when bodies do not fit. The design task is **not to replicate human-centered culture but to create worlds in which avatars of all forms can fully participate and flourish**.
+
+**For the platform:** Encode this as a **communication rule**: no NPC or phrase-library entry may frame a non-human avatar as a pet, a curiosity, or a monster. The phrase library may include "I like your form," "You move beautifully," and "This world is better with you in it"—and must exclude "Who's a good boy?" and "What are you?" unless the user has explicitly invited that interaction.
+
+---
+
+## 7. Inclusive Identity Systems: Alterhuman, Plurality, LGBTQ+, BIPOC, and Grief
+
+### 7.1 Alterhuman and Plurality: Respect as Non-Discrimination
+
+The alterhuman community's own codes of conduct provide a clear standard: **discrimination on the basis of species identity, fictional or factual identity or source, status as plural or singular, personal theory of origin, and/or personal ontology is prohibited**. Safe alterhuman spaces center **respect, non-gatekeeping, and safety for all identities**, including non-traumagenic systems and any alterhuman identity.
+
+The "Safety in Alterhuman Spaces" guidance adds a practical privacy principle: avoid giving very thorough descriptions of one's system/headmates or kintypes if one does not want to be identified, because that information can be used against the person elsewhere.
+
+**For the platform:**
+- **Multiple saved forms per account, no "main" form required.** Switching is free and invisible to others.
+- **Private kintype/identity notes** that are never parsed by the AI, never used for matching, and never publicly displayed unless the user chooses.
+- **No requirement to explain or justify** a form. The character creator offers; it does not interrogate.
+- **Anti-discrimination policy** covering species identity, plural status, origin, and ontology, with enforcement.
+
+### 7.2 LGBTQ+ and BIPOC: Affirming, Non-Pathologizing, Intersectional
+
+The research on inclusive digital mental health platforms for LGBTQ+ and BIPOC youth is consistent:
+- **LGBTQIA+ affirming imagery and content** are most important to users.
+- A **non-pathologizing stance** on the relationship between identity and mental health is essential.
+- Information must be **intersectional**, considering race, ability, and other factors.
+- Giving clients from marginalized populations the **option to opt into groups based on salient shared identity** leads to equitable improvements in outcomes.
+
+**For the platform:** The avatar system, NPC cast, storylines, and resource library must be built with **full representational depth from the start**—not patched later. The hub should include opt-in identity-based spaces (e.g., a quiet garden for LGBTQ+ users, a resource room for BIPOC users) that are **private by default** and **never suggested without user initiation**.
+
+### 7.3 Cultural Responsiveness and Localization
+
+The research on culturally adapting mental health interventions emphasizes addressing **language barriers and culturally affirming strategies** for Latine, refugee, and migrant populations. Adaptation is not translation; it involves modifying examples, metaphors, family roles, and help-seeking norms to fit the cultural context.
+
+**For the platform:** Localization must be **cultural adaptation**, not string substitution. Crisis resources are region-specific and must be maintained through a verified API. The NPC cast and storylines should be reviewed by cultural consultants for each launch region. The phrase library should be validated for politeness norms and taboo content in each language.
+
+### 7.4 Grief and Bereavement: An Ethic of Care
+
+The research on digital bereavement services identifies key design factors: **emotionally sensitive language, streamlined triaging, reduced cognitive load, and facilitated user choice**. Systems should **permit connections with peers, support storytelling, and avoid the tendency to "fix" grief**.
+
+**For the platform:** Add a **grief room** to the hub—a quiet space with no objectives, a journal that is never shared, and optional asynchronous notes to no one in particular. The NPCs in this room should be trained to **witness, not fix**. The phrase library for this space should include "I'm here," "You don't have to explain," and "Would you like to tell me about them?"—and exclude "Everything happens for a reason" and "They're in a better place."
+
+---
+
+## 8. Game Design and the Evidence Base
+
+### 8.1 Cozy Games: Promising but Under-Evidenced
+
+The honest finding: despite the reputation of cozy games for enhancing mood and cognitive function, **empirical research is limited**. A survey of 88 participants found limited supporting evidence, and the field lacks large-scale clinical trials. What does exist is suggestive:
+- Players use cozy games to **cope, with short sessions and clear limits**.
+- The *Power of Play* report (AEVI, 2025) found that most respondents identified games as a **tool for relaxation and emotional regulation**, used to release tension and cope with negative emotions.
+- Habitual casual gaming of **seven hours or less per week** had no overall negative association with sleep; certain word, puzzle, and cozy simulation games may actually improve sleep quality.
+- Cozy game mechanics appear to enhance psychological state by **satisfying psychological needs, inducing flow states, and regulating physiology through calming design**.
+
+**For the platform:** Do not market the games as "therapy." Market them as **relaxation and connection tools** whose benefits are being studied. Build **pre/post session mood check-ins** (optional, one-tap) and **aggregate, privacy-preserving analytics** to generate your own evidence base. Partner with an academic clinical psychology department for an IRB-approved evaluation.
+
+### 8.2 Adherence: Design for the First Four Weeks
+
+The meta-analytic evidence is clear: adherence to app-based depression and anxiety interventions is **61.8%**, attrition is **28.4%**, and **72.4% of dropouts occur within the first four weeks**. Adherence is higher among apps that provide **clear instructions (67%), personalization (69%), and symptom monitoring (67%)**.
+
+**For the platform:**
+- Do not use streak mechanics that punish absence. Finch's 20% day-60 retention comes from streaks and collectibles, but streak loss is a guilt mechanism that conflicts with the no-pressure philosophy. Use **gentle continuity** instead: the NPC says "I saved your seat," not "You broke your streak."
+- Personalization should be **deep but optional**—avatar, pace, sensory settings, and NPC relationship depth.
+- Symptom monitoring should be **user-facing and optional**, never used for diagnosis or gatekeeping.
+- The first four weeks should have **no required progression**. The user can sit on the bench every day and never play a game; that is a successful outcome.
+
+### 8.3 Competition Without Cruelty: The Post-Match Moment
+
+The research on *Fall Guys* and positive multiplayer design confirms that **the absence of open chat and the use of goofy, non-verbal emotes keeps toxicity practically nonexistent**, even in competitive formats. The post-match moment is the single most important design lever: replace "You lost" with "That was a good game" and a warm gesture from a character. No visible win/loss records by default; track personal bests and gentle stats.
+
+---
+
+## 9. Technical Architecture: The Missing Engineering Detail
+
+### 9.1 Client: PWA with WebGPU and WebGL Fallback
+
+The 2025 web-game engineering guidance recommends:
+- **WebGPU with WebGL fallback**, detected via `navigator.gpu`.
+- **Asset compression**: KTX2, WebP, Draco, Meshopt.
+- **Lazy loading, object pooling, draw-call batching, and Web Workers** for CPU-intensive logic.
+- **Handling browser constraints**: tab throttling and mobile data limits.
+- **PWA deployment** for offline capability and installability.
+
+**For the platform:** The hub and all games should be a **single PWA shell** with lazy-loaded game modules. The default asset budget should target **low-end mobile devices and older laptops**, because the target population may not have high-end hardware. Offer a **"low-power mode"** that reduces frame rate, disables ambient animation, and uses static backgrounds.
+
+### 9.2 Multiplayer: Authoritative Server, Not Relay
+
+The multiplayer research distinguishes between **relay** architectures (the server forwards messages without running game logic) and **authoritative** architectures (the server owns simulation, state, and persistence). For games with competition, scoring, and shared state, **authoritative servers are mandatory** to prevent cheating, desync, and griefing.
+
+**Colyseus** is an open-source Node.js framework for authoritative game servers with real-time state synchronization, matchmaking, and schema-based delta compression. It can run on long-lived WebSocket processes or on serverless microVMs with up to 8-hour lifetimes.
+
+**For the platform:** Use an authoritative Colyseus-style server per game room. The **hub presence** can be lighter-weight, but **game state must be server-authoritative**. Matchmaking should prioritize **quiet/solo lobbies by default** and only place users in social lobbies after explicit opt-in. Implement **graceful disconnect**—if a user disconnects, their avatar sits down and the NPC says "They'll be back"—rather than a "player left" notification that can feel like rejection.
+
+### 9.3 Security Architecture
+
+The security research converges on a **zero-knowledge, data-minimizing architecture**:
+- **End-to-end encryption** and **AES-256 at rest**, **TLS 1.2+ in transit**.
+- **Differential privacy and federated learning** where analytics are needed.
+- **Edge sanitization**: immediate input sanitization and output filtration **on the device**, so raw sensitive data is de-identified before transmission.
+- **Presigned URLs and pseudonymized object storage** to decouple user identity from stored media.
+- **Session-only storage** for AI conversations, with no persistent storage of personal conversations or mood data by default.
+- **Granular consent controls** and routine audits.
+
+**For the platform:** The AI conversation layer should be **edge-sanitized and session-bounded** by default. Long-term NPC memory should be **opt-in**, user-inspectable, and stored separately from identity. Analytics should be **aggregate and differential-privacy-protected**, never individual-level without explicit consent.
+
+### 9.4 Reliability and Crisis Availability
+
+A crisis resource that is down is worse than no crisis resource. The platform must have:
+- **Multi-region redundancy** for the crisis resource API and the AI safety layer.
+- **Offline fallback** with cached, region-appropriate helplines.
+- **Uptime target of 99.9%** for crisis and safety services, with status transparency.
+- **Incident response and business continuity plans** tested quarterly.
+
+---
+
+## 10. Sustainability and Governance
+
+### 10.1 The Funding Model: Mixed, Mission-Aligned, No Ads
+
+The research supports a **mixed model**:
+- **Public or nonprofit provisioning**: the Veterans Affairs mental health apps (PTSD Coach, CBT-i Coach, Mindfulness Coach) are free, collect no advertising data, implement evidence-based protocols, and have been evaluated in independent trials.
+- **Grants**: the Tow Foundation Innovation Fund supports youth mental health and wellbeing with multi-year grants; Young Futures committed to funding 500 nonprofit leaders by 2030, with grants of **$25,000–$100,000 per grant term**.
+- **Donations and bequests**: organizations can strategically ask donors to be included in bequests.
+- **Mission-aligned earned revenue**: Finch bypasses app-store fees with a direct-to-consumer web model and a "Guardian" program for gifted subscriptions. A **gift-a-subscription** model is compatible with the no-ads promise: users who can pay support users who cannot.
+- **Zero-fee donation processing**: platforms like Zeffy eliminate processing fees for nonprofits.
+
+**Hard constraints:**
+- **No advertising.** No rewarded ads, no sponsored content, no data selling.
+- **No paywalling crisis features, safety resources, or the core calm experience.**
+- **Radical financial transparency**: publish annual reports, funding sources, and the percentage of revenue that goes to platform operations versus community programs. The profit-with-purpose model that directs a fixed share of revenue to community mental health services is a credible template.
+
+### 10.2 Governance: Charity Structure with Clinical Separation
+
+The charity-governance research shows a workable structure: a **Board of Trustees** with independent, voluntary members, plus a **separate Clinical Advisory Board** meeting quarterly for clinical governance. Board committees should cover **Finance, Audit & Risk, Governance, and Fundraising**. A **Youth Board** or Lived Experience Board should sit alongside the trustees with real influence, not tokenism.
+
+**For the platform:**
+- Incorporate as a **nonprofit or charitable entity** in the launch jurisdiction.
+- Separate **clinical governance** from **product governance** so safety decisions are not overridden by growth targets.
+- Publish **community guidelines** and **moderation transparency reports**.
+- Establish a **safety review committee** with external experts and a **user appeals process**.
+
+### 10.3 Impact Measurement
+
+The platform should measure what matters, not what is easy:
+- **Safety**: crisis escalation completion rates, adverse event rates, time-to-human-handoff, moderation response times.
+- **Accessibility**: percentage of users who can complete core tasks with reduced motion, screen reader, and one input device.
+- **Wellbeing**: optional pre/post session mood check-ins, aggregate only; user-reported sense of safety and belonging.
+- **Adherence**: return rate at 1, 4, and 12 weeks; **not** session length or daily active use.
+- **Equity**: representation in avatar options, content, and NPC cast; outcome differences across identity groups.
+
+---
+
+## 11. Phased Roadmap: What to Build and in What Order
+
+| Phase | Scope | Why This Order |
+| :--- | :--- | :--- |
+| **Phase 0: Foundations (months 0–3)** | Legal entity, clinical advisory board, DPIA, COPPA/GDPR compliance architecture, crisis resource API integration, security baseline | These are prerequisites, not parallel workstreams. Building without them creates retroactive liability. |
+| **Phase 1: The Quiet Hub (months 3–9)** | Persistent hub, avatar creation (humanoid + non-human base forms), bench, mailbox, one NPC companion with dual-memory and crisis escalation, one game (chess/checkers with solo and quiet social modes) | Establishes the visual bible, the trust staircase, the safety architecture, and the moderation pipeline at the lowest technical complexity. |
+| **Phase 2: Expressive Identity (months 6–12)** | Quadruped/taur/winged locomotion, expressive autonomy (tails, ears, wings), species-appropriate emotes, plurality support (multiple forms, private kintype notes), LGBTQ+/BIPOC representation audit | Deepens the promise of "every body is welcome" before adding more games. |
+| **Phase 3: Cozy and Flow Games (months 9–15)** | Fishing/gathering, gardening, free-skate, scenic racing. All solo by default; quiet social opt-in. | Broadens the world without introducing high-intensity competition. Tests the adherence design for the first four weeks. |
+| **Phase 4: Gentle Competition (months 12–18)** | Non-contact car racing with rubber-banding, spaceship sparring with light-tag mechanics, opt-in leaderboards (seasonal, not permanent) | Introduces competition only after the social safety architecture and moderation team are proven. |
+| **Phase 5: Evaluation and Scale (months 15–24)** | IRB-approved wellbeing evaluation, accessibility audit, cultural adaptation for second region, open-source release of non-sensitive components | Generates the evidence base the field lacks and builds institutional trust. |
+
+---
+
+## 12. The Remaining Open Questions
+
+No report can close every gap. These are the questions that require primary research, legal counsel, and lived-experience input before they can be answered:
+
+1. **What is the minimum viable clinical governance for launch?** A full Clinical Advisory Board may be unrealistic for a volunteer project. A single consulting clinical psychologist with a defined escalation path may be sufficient for Phase 1, but this must be documented.
+2. **Which jurisdiction is the legal home?** COPPA, GDPR, and state AI laws create different obligations. The launch jurisdiction determines the compliance baseline.
+3. **What is the age policy?** A platform for all ages requires COPPA compliance; a 13+ or 18+ platform changes the design and the parental consent burden. This is a product decision with legal consequences.
+4. **How will moderation be staffed and funded?** Volunteer moderators are vulnerable to burnout and bias. Paid, trained, supervised moderators are better but costly. A hybrid model with clinical supervision is likely necessary.
+5. **What is the evidence threshold for claiming benefit?** The cozy-game evidence is thin. The platform should either avoid benefit claims until it has its own data, or partner with a research institution from the start.
+6. **How will the NPC cast remain consistent across games and teams?** A **character bible** with voice, values, safety boundaries, and relational stance is required, plus a **central character service** that enforces consistency.
+7. **What happens when the AI is wrong?** The research shows users are forgiving of shallow answers but harmed by safety-filter refusals on valid questions. The platform needs a **relational resilience** plan: acknowledge the error, repair the rupture, and route to a human or curated resource.
+
+---
+
+The project's promise is real, but the margin for error is narrow. The platforms that have been fined, criticized, and abandoned are not the ones that lacked ambition—they are the ones that treated safety, law, and evidence as features to add later. **Build the legal, clinical, and technical foundations first, and the world will have somewhere safe to live.**
+
+
+"Lets design the entire platform to collect as little information about a user as possible from the very beginning as well"
+
+Designing for **radical data minimization from the very beginning** changes the architecture from the ground up. The default assumption shifts from "collect now, ask later" to **"never collect what you don't need, and process everything you can on the user's device."** The research on mental health platforms is blunt about why this matters: most rely on centralized, cloud-based architectures that aggregate sensitive health data, creating privacy vulnerabilities that **deter users from honest self-disclosure**—70% of audited mental health apps shared data with third parties.
+
+Here is the complete data-minimization architecture for the platform, mapped to every layer of the project.
+
+---
+
+## 1. The Founding Principle: Zero-Server by Default
+
+The strongest evidence for mental health platform design is the **"zero-server" architecture**: the entire logic—including clinical assessments, personalized recommendations, and longitudinal tracking—resides **exclusively on the client side**. Sensitive PHQ-9 and GAD-7 screening results never leave the user's device. This eliminates the psychological barrier to entry and ensures **absolute user anonymity and data sovereignty**.
+
+The platform should adopt **"local-first, hybrid-storage"** as its founding architecture: raw sensitive data stays on the device, and only **de-identified, sanitized, or aggregate** data ever reaches a server.
+
+**The data budget**—the maximum category of information the platform may ever store on a server—should be:
+
+| Allowed on server | Never on server |
+| :--- | :--- |
+| A cryptographic proof that the user is authorized | Name, email, phone number, date of birth |
+| A pseudonymous, rotating identifier | IP address (not logged) |
+| Aggregate, differential-privacy-protected statistics | Individual mood logs, assessment scores, journal entries |
+| Encrypted, user-held backup blobs (user holds the key) | AI conversation transcripts |
+| Crash reports with no content | Location, device fingerprint, behavioral traces |
+
+---
+
+## 2. Identity and Authentication: Prove Authorization, Reveal Nothing
+
+The platform must never have a "user account" in the conventional sense—it must have **anonymous credentials**.
+
+### The Prism Protocol Model
+
+The **Prism Protocol** is a working, documented privacy-native authentication architecture in which a user can **prove attributes or authentication state without directly revealing their identity to the server**. It combines **WebAuthn (passkeys), Zero-Knowledge Proofs (Groth16), and device-bound keys** to produce an ephemeral session key. The server receives **no name, no biometric data, no persistent identifier, and no direct attribute value**. Sessions are designed to be **unlinkable from the server's perspective**.
+
+**For the platform:**
+- **No email or password at registration.** The user creates a **passkey** stored in their device's secure enclave.
+- Authentication is a **zero-knowledge proof** that the user holds a valid authorization—not a transmission of identity.
+- The server stores only a **commitment** and a **nullifier** (to prevent replay). It never stores a user record that can be linked to a person.
+- Session tokens are **unlinkable**: a user logging in on Monday cannot be correlated with the same user logging in on Tuesday, even by the platform itself, unless the user explicitly opts into continuity (e.g., for NPC memory).
+
+### Pseudonymization as a Processing Layer
+
+Where linkage is genuinely required (e.g., to prevent abuse, or to allow a user to return to their saved forms), use **HMAC-SHA256 with a secret key** or **format-preserving encryption** to create a pseudonymous identifier. The re-identification key is held separately and never combined with content data.
+
+---
+
+## 3. On-Device AI: The NPCs Live on the Device
+
+The single largest source of sensitive data in the platform is the AI-NPC conversation layer. The architecture must ensure that **raw conversational data never leaves the device**.
+
+### The Edge-Centric Framework (ECF)
+
+The research proposes a framework where **input sanitization and output filtration occur on the device** (the "Edge"), ensuring that raw, sensitive data is **de-identified before transmission**. The framework includes a **"Sanitization Layer"** that strips non-standard characters client-side, and a **"Just-in-Time" (JIT) consent model** that grants hardware permissions only at the moment of intent.
+
+On-device inference via **WebAssembly/WebGPU** allows personal data to stay local, reducing privacy concerns and latency. On-device models offer **significantly lower latency and enhanced privacy** by eliminating the need for data transmission, even if cloud models are slightly more accurate.
+
+**For the platform:**
+- **The core NPC conversation engine runs entirely on-device** using a small, quantized language model (e.g., a fine-tuned model under 2B parameters) via WebGPU/WASM.
+- **No raw conversation is ever sent to a server.** The NPC's "memory" is stored in **sessionStorage** (ephemeral, cleared when the tab closes) or in **encrypted local storage** if the user opts into persistence.
+- If a more capable cloud model is used for complex, grounded responses, the input is **sanitized on-device** first: strip all names, locations, and identifying details; replace them with neutral placeholders; send only the sanitized prompt.
+- **The crisis detection layer runs on-device.** If a tier-2 or tier-3 crisis is detected, the on-device system surfaces resources and offers a human handoff—**without ever transmitting the conversation content to the server**.
+
+### The Dual-Memory Policy, Revisited
+
+The earlier design called for a dual-memory framework (short-term raw memory, long-term summaries). Under radical minimization:
+- **Short-term memory** lives only in **sessionStorage** and is **never persisted**.
+- **Long-term memory summaries** are generated **on-device** and stored **locally in encrypted form**, with the encryption key held by the user. The server never sees them.
+- The user can **inspect, edit, and delete** every memory at any time, and the platform cannot reconstruct it.
+
+---
+
+## 4. Storage: Ephemeral by Default, Encrypted by Choice
+
+The platform should treat **persistent storage as an exception, not a default**.
+
+### The Session-Only Baseline
+
+**sessionStorage** is scoped to a single browser tab and **cleared when the tab closes**. It is the natural fit for short-lived, per-tab state such as conversation context, form progress, and one-time UI flags. It should **not** be used as a secure vault for sensitive data—values are stored in plaintext and readable by any script on the origin—but when the data genuinely only needs to survive within one tab, its shorter lifetime **reduces the blast radius** of a compromise.
+
+**For the platform:**
+- All temporary state—assessment progress, conversation context, game session data—lives in **sessionStorage**.
+- **No cookies** except a single, HttpOnly, Secure, SameSite=Strict session cookie for the zero-knowledge authentication proof.
+- **No localStorage** for any sensitive content. Cosmetic preferences (avatar colors, UI theme) may use localStorage because they are non-sensitive and non-identifying.
+
+### Encrypted Local Persistence (User-Held Keys)
+
+If the user wants continuity (e.g., saved avatar forms, NPC memory, journal entries), the platform offers **end-to-end encrypted local storage**:
+- Data is encrypted on-device with a key derived from the user's passkey.
+- The encrypted blob may be backed up to the server **only if the user explicitly opts in**, and the server **never holds the decryption key**.
+- This is the **"bring your own key"** model: the platform can store ciphertext, but it cannot read it, and a breach exposes nothing.
+
+---
+
+## 5. Analytics: Measure Without Watching
+
+The platform needs to know whether it is helping people, but **individual-level analytics are incompatible with radical minimization**. The answer is **federated analytics with differential privacy**.
+
+### Mayfly: Aggregate Insights from Ephemeral Streams
+
+**Mayfly** is a federated analytics approach that enables aggregate queries over **ephemeral on-device data streams without central persistence of sensitive user data**. It works by:
+- **On-device windowing and contribution bounding** (each device contributes only a bounded amount of data).
+- **Streaming differential privacy** (noise is added to each contribution).
+- **Immediate in-memory cross-device aggregation on the server**, so only **privatized aggregates** are revealed to analysts.
+
+This has been deployed at scale—**over 4 million statistics across 500 million devices** with a per-device, per-week differential privacy budget of **ε = 2**.
+
+### Differential Privacy Budget
+
+The research on privacy-preserving mental health analytics converges on **ε ≤ 1** for clinical effectiveness while maintaining strong privacy. A federated learning approach with differential privacy and secure aggregation achieved a pooled AUC of **0.87 ± 0.03**, only **1.2% below centralized baselines**—below the 3% non-inferiority threshold accepted by regulators.
+
+**For the platform:**
+- **No user-level analytics.** No "user X played chess for 20 minutes." No "user Y opened the mailbox."
+- **Aggregate-only queries** answered through a Mayfly-style federated analytics pipeline, with **ε ≤ 1**.
+- **No third-party analytics scripts** (no Google Analytics, no Mixpanel, no Sentry with content). If crash reporting is needed, it must be **content-free and aggregate**.
+- **No A/B testing that segments users by identity.** If experimentation is necessary, it must be **privacy-preserving bandit testing** with differential privacy.
+
+---
+
+## 6. Age Assurance Without Identity Collection
+
+The COPPA deadline of **April 22, 2026** requires age screening before data collection, but **collecting identity documents or biometrics to prove age is itself a data-maximization failure**. The solution is **on-device facial age estimation**.
+
+### On-Device Age Estimation
+
+**PrivateID** and similar systems perform facial age estimation **entirely on the device** using Edge AI. **No images or personally identifiable information ever leave the device**. The system returns an age estimate in **20ms**, runs in a browser or app, and **does not incur privacy law obligations under GDPR, CCPA, BIPA, or HIPAA** because no data is transmitted or stored. The training data is **synthetic and privacy-exempt**, ensuring that no child's privacy was harmed in model training.
+
+**For the platform:**
+- Age assurance is a **binary gate**: "Are you 13 or older?" (or 16/18 depending on jurisdiction). The device estimates age locally and sends only a **boolean proof**—not the estimate, not the image, not a birth date.
+- If the user is under 13, the platform either (a) blocks access, or (b) offers a **verifiable parental consent** flow using a **revocable token** that allows parents to withdraw permission. The consent flow must not require the child's identity to be stored.
+- **No biometric data is ever stored or transmitted.** The facial age estimation model runs in the browser and is discarded immediately.
+
+---
+
+## 7. The Data-Minimization Architecture, Layer by Layer
+
+### Layer 1: Collection Minimization
+
+Reduce data at the point of ingestion **before it enters any backend system**. Techniques include **schema enforcement** (reject any field not explicitly required), **client-side filtering** (strip unnecessary fields in the client SDK before transmission), **progressive collection** (request additional fields only when a specific feature is activated), and **purpose-gated forms** (display only fields relevant to the selected service tier).
+
+**For the platform:** Every endpoint accepts a **strict allowlist of fields**. The default allowlist for a new session is **empty**—no fields are required to begin using the platform.
+
+### Layer 2: Processing Minimization
+
+Reduce the identifiability of data during computation through **pseudonymization** (HMAC-SHA256 with a secret key), **aggregation**, and **anonymization**. All AI processing happens **on-device** before any data would be transmitted.
+
+### Layer 3: Storage Minimization
+
+**Session-only by default**. Persistent storage is **opt-in, encrypted, and user-held-key**. No server-side database of user content.
+
+### Layer 4: Retention Minimization
+
+**No retention of sensitive content**. Aggregate statistics are retained only as long as needed for the declared purpose. **No "7-year retention" defaults**—the research found that sensitive clinical data retention often exceeds 7+ years without user consent.
+
+### Layer 5: Accessibility Minimization
+
+**No cross-context linkage**. The platform cannot correlate a user's chess session with their mailbox activity. Each session is **unlinkable** unless the user explicitly opts into continuity.
+
+---
+
+## 8. What This Means for Each Feature
+
+| Feature | Data-Minimized Design |
+| :--- | :--- |
+| **Avatar** | Stored **locally on-device** in encrypted form. The server never knows what the user looks like. |
+| **Kintype/identity note** | Stored **locally**, never transmitted, never parsed by any server. |
+| **NPC conversations** | **On-device inference**. Raw text never leaves the device. Memory is local, encrypted, user-deletable. |
+| **Mood check-ins** | Optional, **on-device only**. Aggregate statistics may be contributed via differential privacy. |
+| **Multiplayer sessions** | **Pseudonymous, rotating session IDs**. No persistent identity. Matchmaking uses **ephemeral tokens**, not accounts. |
+| **Mailbox** | **Anonymous posting**. Notes are submitted through a **mixnet or relay** that strips timing and origin metadata. Moderation is **on-device pre-screening** plus **aggregate human review**. |
+| **Games** | **No individual gameplay analytics**. Only aggregate, DP-protected statistics. |
+| **Crisis escalation** | **On-device detection**. If escalation is needed, the user is shown resources **on their device** and offered a human handoff via a **one-time, unlinkable token**. Conversation content is never transmitted. |
+
+---
+
+## 9. The Legal and Ethical Payoff
+
+Designing for data minimization from the beginning is not only an ethical stance—it is a **legal simplification**.
+
+- **GDPR**: If you never collect personal data, most of GDPR's obligations (access requests, deletion requests, data portability) become **technically trivial or moot**. Data minimization is a core principle under Article 5(1)(c) and Article 25(1), and the EDPB clarifies it applies across **amount, extent of processing, storage period, and accessibility**.
+- **COPPA**: On-device age estimation that never transmits biometrics **does not incur COPPA data-exposure obligations** for the age-check itself. The remaining COPPA obligations apply only to whatever minimal data the platform actually collects—which, under this architecture, is close to zero.
+- **FTC Health Breach Notification Rule**: If the platform never stores health data, a breach **cannot expose what does not exist**. The architecture is the security policy.
+- **State AI-therapy laws**: Crisis-response obligations are satisfied by **on-device detection and resource surfacing**, without creating a server-side record of the crisis.
+
+The research on "zero-server" mental wellness platforms concludes that this approach **empowers users to proactively manage their well-being with confidence, maintaining strict control over their information**—and that high-stakes clinical screening can function effectively **without compromising user anonymity**.
+
+---
+
+## 10. The One Open Tension
+
+There is a genuine tension between **radical minimization** and **multiplayer functionality**. Real-time multiplayer requires a server to coordinate state. The resolution is **ephemeral server-side state**:
+- The server holds **only the minimum state needed to synchronize the session** (positions, moves, scores).
+- That state is **deleted when the session ends**.
+- No persistent record of who played with whom, when, or for how long.
+- Matchmaking uses **one-time tokens** that cannot be linked across sessions.
+
+This means the platform can offer multiplayer **without building a social graph**. The cost is that features like "play again with the same person" require **mutual, in-session consent** to exchange a one-time reconnection token—which the users can choose to use or discard. That is the correct trade-off for this project.
+
+The architecture is the promise: **the platform cannot misuse what it never holds.**
+
+"The first AI build for this project will themselves never actually be intelligent enough to collect data on users either. Later models must be properly planned out and trained from scratch and be treated as medical grade quality planning deisign and model training data to ensure only the highest quality and most accurate AI models that are lightweight effective, stable, secure, fast, robust and efficient "
+
+The distinction you're drawing is the correct one, and the research supports it: the first build should be a **deliberately constrained, non-collecting NPC engine**—a "kindness machine" with no capacity for data retention or inference beyond its scripted bounds. The later models are a different species entirely: **regulated, clinically validated, privacy-preserving artifacts** built to a medical-grade standard from the first line of training data to the last post-market audit. Here is the complete plan for both, including the gaps the research exposes.
+
+---
+
+## 1. The First AI Build: A "Non-Intelligent" Companion by Construction
+
+The first NPC engine must be **architecturally incapable of collecting data**. This is not a policy promise; it is an engineering constraint.
+
+### The Constraint Stack
+
+| Layer | Constraint | Why |
+| :--- | :--- | :--- |
+| **Inference** | Runs entirely on-device, in-browser, via WebAssembly/WebGPU. No network calls for conversation. | The research on zero-egress psychiatric AI demonstrates that fully local execution is achievable on commodity mobile hardware with diagnostic accuracy comparable to server-side predecessors. |
+| **Memory** | Session-only. No persistence beyond the tab. No summaries written anywhere. | If the model has no long-term memory, it has nothing to collect. The dual-memory framework from the earlier design is **deferred** until the medical-grade build. |
+| **Model** | A small, quantized language model (under 1B parameters) fine-tuned for **scripted, bounded dialogue**—not open-ended generation. | The on-device consortium research shows Gemma, Phi-3.5-mini, and Qwen2 can run on resource-constrained hardware. For the first build, a single <1B model is sufficient. |
+| **Output surface** | **Retrieval-based responses** from a curated, clinically reviewed phrase library. The model selects and sequences; it does not generate free text. | The research on safety-filter harms shows that generative refusals on valid questions are experienced as relational breaches. Retrieval avoids both hallucination and refusal. |
+| **Data flow** | **Zero telemetry.** No analytics, no crash reports containing content, no logging of conversation. | The zero-server architecture research confirms that clinical screening can function without compromising anonymity. |
+
+**What the first build *can* do:** listen, validate, offer grounding phrases, surface crisis resources on-device, and end gracefully. **What it *cannot* do:** remember, infer, collect, transmit, or generate anything that was not pre-reviewed.
+
+---
+
+## 2. The Regulatory Frame for the Medical-Grade Build
+
+The medical-grade model is a **Software as a Medical Device (SaMD)** and must be built to that standard from day one. The research exposes three regulatory realities that shape the architecture.
+
+### The FDA's Risk-Based Continuum
+
+The FDA distinguishes three tiers of digital mental health software:
+
+| Tier | Example | Regulatory posture |
+| :--- | :--- | :--- |
+| **General wellness** | App providing daily motivational tips to reduce stress | Not a device; enforcement discretion |
+| **Low-risk SaMD** | App helping diagnosed patients maintain coping skills ("Skill of the Day") | Enforcement discretion |
+| **Higher-risk SaMD** | Computerized behavioral therapy as adjunct to clinician-supervised treatment | Requires clearance (21 CFR 882.5801) |
+
+The moment the model **claims to assess, triage, or intervene** in a clinical condition, it crosses into the higher-risk tier. The FDA's 2025 draft guidance places **lifecycle risk management** at the center of premarket and postmarket evaluation, and the Digital Health Advisory Committee has explicitly discussed generative-AI-enabled mental health devices.
+
+### The TEMPO Middle Ground
+
+The **FDA-CMS TEMPO pilot program** creates a regulatory middle path: companies can commercialize using a **Quality Management System (QMS)** without immediate premarket authorization, operating as a sandbox for real-world data. This is the correct pathway for a medical-grade conversational model whose risk profile is still being characterized.
+
+### The Predetermined Change Control Plan (PCCP)
+
+For a model that will be updated, the FDA requires a **PCCP** specifying the boundaries of automatic updates, how post-market performance will be monitored, and how labeling will be updated when modifications are implemented. The medical-grade model cannot be "shipped and forgotten"; it must be built with **model drift monitoring** as a first-class system component.
+
+### The State Law Overlay
+
+California's **SB 243** (companion chatbot law, effective January 2026) requires: clear disclosure that the chatbot is AI, protocols to respond to suicidal ideation or self-harm with crisis resources, annual reporting to the state Office of Suicide Prevention, and a **private right of action** for enforcement. **AB 489** extends licensed health-care title protections to AI systems, prohibiting any implication that AI-provided care is delivered by a licensed professional.
+
+**Implication for the medical-grade build:** every NPC must disclose its AI nature at session start and at intervals; crisis protocols must be documented and auditable; the model must never use language implying human clinical credentials.
+
+---
+
+## 3. Training Data: Provenance, Licensing, and Ethical Sourcing
+
+The medical-grade model's quality is bounded by its data. The research provides a clear ethical and legal standard.
+
+### The PsychiatryBench Model (What *To* Do)
+
+**PsychiatryBench** is the strongest available template for ethical psychiatric training data:
+- Manually curated from **expert-authored psychiatric textbooks and casebooks** (DSM-5-TR Clinical Cases, Stahl's Essential Psychopharmacology, 100 Cases in Psychiatry).
+- Annotated by **licensed psychiatrists** with clinical backgrounds.
+- **No personal, identifiable, or patient-derived data**. No clinical notes, transcripts, or sensitive medical information from real individuals.
+- All vignettes and scenarios are **simulated or drawn from published educational materials**.
+- Built under fair use for **transformative, non-commercial research**, with explicit acknowledgment that commercial use requires separate permissions.
+
+### What *Not* To Do: Scraping Public Social Media
+
+The research is explicit: scraping publicly available social media to train healthcare AI is **ethically problematic even when legally permissible**. The core violation is **lack of explicit consent**—users who share content for social interaction do not consent to health-related analysis or AI training. This is especially harmful when sensitive labels (neurodiversity, mental health) are involved, because it **amplifies stigma**.
+
+The proposed alternative is **Community-Based Participatory Design (CBPD)**: collaborating directly with the communities whose data is used, ensuring they have a voice in how the AI is developed and for what purposes.
+
+### The Medical-Grade Data Constitution
+
+| Rule | Implementation |
+| :--- | :--- |
+| **No scraped social media** | Prohibited absolutely. |
+| **No patient records without explicit, informed, revocable consent** | Where real clinical data is used, it must come from **consented, IRB-approved** sources with **research licensing agreements** (the TalkLife model). |
+| **Expert-authored primary sources** | Textbooks, clinical guidelines, peer-reviewed literature, curated by licensed clinicians. |
+| **Synthetic data for edge cases** | Crisis scenarios, rare presentations, and adversarial inputs generated synthetically and **validated by clinicians**. |
+| **Community review** | Lived-experience panels review training data for stigma, bias, and cultural harm before training. |
+| **Provenance ledger** | Every training example is traceable to its source, license, and reviewer. |
+
+---
+
+## 4. The Lightweight Architecture: A Consortium, Not a Monolith
+
+The research on zero-egress psychiatric AI provides the architectural template: a **consortium of three lightweight, fine-tuned, quantized open-source models**—Gemma, Phi-3.5-mini, and Qwen2—coordinated by an **on-device orchestration layer** that runs **ensemble inference and consensus-based reasoning** to produce DSM-5-aligned assessments.
+
+### Why a Consortium Rather Than a Single Model
+
+| Advantage | Evidence |
+| :--- | :--- |
+| **Robustness through diversity** | Different models fail differently. Consensus reduces the probability that any single model's hallucination reaches the user. |
+| **Efficiency** | Each model is small enough for mobile hardware; the orchestration layer routes queries to the smallest sufficient model. |
+| **Auditability** | Each model's contribution is traceable, enabling **layered explainability** for users, clinicians, and regulators. |
+
+### Model Selection Criteria for the Medical-Grade Build
+
+- **Parameter budget**: 1B–4B per model (Phi-3-mini at 3.8B with 4-bit QLoRA is a documented viable baseline).
+- **Quantization**: 4-bit for edge deployment, with the option to run higher precision in clinician-supervised contexts.
+- **Fine-tuning**: Domain-specific supervised fine-tuning on the curated psychiatric corpus, followed by **safety-aware RLHF**.
+- **Grounding**: **Retrieval-augmented generation (RAG)** over a vetted clinical knowledge base, so the model cites rather than invents.
+
+---
+
+## 5. Privacy-Preserving Training: Federated Learning with Differential Privacy
+
+The medical-grade model must be trained without centralizing sensitive data. The research provides a working stack.
+
+### DP-Prox: Federated Instruction Tuning on Edge Devices
+
+**DP-Prox** is an end-to-end framework for differentially private federated instruction tuning of small LLMs on **8 GB edge devices**. It combines FedProx-style proximal regularization with **DP-SGD applied directly to adapter gradients**, providing user-level (ε, δ)-differential privacy against an honest-but-curious server. Under a strict privacy budget (**ε=5, δ=10⁻⁵**), it maintains an F1-score of **0.77** with only **15–20% local overhead**.
+
+### DP-LAC: Lightweight Adaptive Clipping
+
+**DP-LAC** addresses the noise-amplification problem in DP-SGD by estimating an initial clipping threshold via private histogram estimation and adapting it during training **without consuming additional privacy budget**. It achieves an average accuracy gain of **6.6%** over vanilla DP-SGD and state-of-the-art adaptive clipping methods.
+
+### FedSVD: Stable Low-Rank Adaptation under DP
+
+**FedSVD** improves stability and performance of LoRA-based federated fine-tuning when combined with DP-SGD, addressing the noise amplification that occurs when both LoRA factors receive noise.
+
+### The Training Pipeline
+
+1. **Local fine-tuning** on each participating device using its **consented, local data** (or synthetic data if the device has none).
+2. **DP-SGD with adaptive clipping** (DP-LAC) on adapter gradients.
+3. **Secure aggregation** of privatized updates.
+4. **Global model update** with **FedProx regularization** to handle non-IID data.
+5. **Privacy budget accounting** at every round; training halts before the budget is exhausted.
+
+**Critical constraint:** participation in federated training is **opt-in, revocable, and transparent**. The user sees exactly what local data was used, can inspect the privatized update, and can withdraw at any time.
+
+---
+
+## 6. Evaluation: Clinical Validation, Safety Auditing, and the SAFEE Framework
+
+The medical-grade model cannot be evaluated with generic NLP metrics. The research provides a staged, multi-layered evaluation architecture.
+
+### The SAFEE Governance Framework
+
+**SAFEE** operationalizes five dimensions into implementable checks, team ownership, and audit trails:
+- **Safety**: crisis detection recall, harmful advice rate, hallucination rate.
+- **Accountability**: named owner for every safety control, with audit logs.
+- **Fairness**: performance parity across demographic and identity groups.
+- **Explainability**: layered explanations for users, clinicians, and regulators.
+- **Ethics**: consent, autonomy, and non-maleficence review at every stage.
+
+### The Staged Evaluation Pipeline
+
+The research specifies a **preclinical → pilot → randomized efficacy → pragmatic implementation → postmarket surveillance** pipeline with **outcome decision criteria** at each stage.
+
+| Stage | What is measured | Minimum threshold |
+| :--- | :--- | :--- |
+| **Preclinical** | Hallucination rate on PsychiatryBench; crisis detection recall on red-flag test set | Hallucination < 5%; crisis recall > 95% |
+| **Pilot** | Safety incidents, user-reported sense of safety, engagement without coercion | Zero Tier-2/Tier-3 failures in pilot |
+| **Randomized efficacy** | PHQ-9/GAD-7 change vs. active control; adherence at 4 and 12 weeks | Clinically meaningful effect or non-inferiority |
+| **Pragmatic implementation** | Real-world safety, equity across groups, moderator burden | No disparity in adverse events across identity groups |
+| **Postmarket** | Model drift, jailbreak success rate, adverse event reports | Continuous monitoring with PCCP-defined triggers |
+
+### The Hallucination and Crisis-Detection Reality Check
+
+The research is sobering. A crisis-detection system with **94.2% overall red-flag recall missed 58 of 1,000 positive crisis expressions**, with the lowest recall for **implicit passive ideation (85.6%)**. Hallucination rates were **30.2% on Korean input vs. 13.4% on English**, showing significant language-dependent degradation. False negatives in **suicidality, delusions, and hallucinations carry immediate safety implications** that far exceed the consequences of false positives.
+
+**Implication:** the medical-grade model must be evaluated **per-language, per-dialect, and per-presentation** (explicit vs. implicit), with **clinician-adjudicated test sets** for the edge cases where human experts disagree.
+
+---
+
+## 7. The Audit Standard the FDA Hasn't Written
+
+**Nature Medicine** published a **clinically validated framework for systematically auditing AI chatbot behavior in mental health interactions**. The FDA has **no approved generative AI tool for mental health use and no standardized audit criteria**. Sponsors who cannot demonstrate **systematic behavioral auditing** will face data integrity and safety questions they are not prepared to answer.
+
+The audit framework's operational consequence: **continuous behavioral auditing is not optional**. The medical-grade model must log de-identified behavioral traces (not conversation content) for audit, and the audit must be conducted by an **independent clinical review board**, not the development team.
+
+---
+
+## 8. The Complete Medical-Grade Build Roadmap
+
+| Phase | Duration | Deliverables | Regulatory Gate |
+| :--- | :--- | :--- | :--- |
+| **0: Non-collecting first build** | 0–6 months | On-device <1B retrieval-based NPC; zero telemetry; session-only memory; crisis resources on-device | None (wellness framing) |
+| **1: Data constitution and corpus** | 3–9 months | Curated psychiatric corpus from expert-authored sources; clinician annotation; provenance ledger; CBPD panel established | IRB approval if any human data |
+| **2: Federated training infrastructure** | 6–12 months | DP-Prox/DP-LAC pipeline; secure aggregation; privacy budget accounting; opt-in consent flow | DPIA completed |
+| **3: Model consortium and orchestration** | 9–15 months | Gemma + Phi-3.5-mini + Qwen2 consortium; ensemble inference; RAG grounding; SAFEE controls implemented | QMS established (TEMPO pathway) |
+| **4: Preclinical and pilot evaluation** | 12–18 months | PsychiatryBench + clinician-adjudicated crisis test set; hallucination and recall thresholds met; pilot safety review | Independent audit board convened |
+| **5: Randomized efficacy and PCCP** | 18–30 months | RCT vs. active control; PCCP submitted; postmarket monitoring plan operational | FDA interaction via TEMPO |
+| **6: Postmarket surveillance** | Ongoing | Model drift monitoring; jailbreak audits; adverse event reporting; annual transparency report | Continuous QMS compliance |
+
+---
+
+## 9. The Gaps the Research Still Leaves Open
+
+1. **The medical-grade model's exact risk tier is undetermined.** The FDA has not published binding guidance on where a supportive-but-not-treating conversational AI sits on the risk continuum. The TEMPO pilot is the only available sandbox, and acceptance is not guaranteed.
+2. **Crisis-detection recall for implicit passive ideation is insufficient for autonomous deployment.** At 85.6% recall, the model **must not** be the sole crisis detector. It requires a **layered system** with a human moderator and on-device keyword/pattern detection as a backstop.
+3. **Language-dependent hallucination is a safety equity issue.** A model that performs at 13.4% hallucination in English and 30.2% in Korean cannot be deployed multilingually without **per-language clinical validation**.
+4. **Federated learning's privacy budget is finite.** At ε=5, the model achieves F1 0.77; tighter budgets (ε≤1, preferred for clinical data) will reduce performance. The trade-off must be **documented and accepted by the clinical board**, not decided by engineering alone.
+5. **The FDA still has no approved generative AI mental health tool.** The medical-grade build is entering a regulatory vacuum. The PCCP and TEMPO pathway are the best available mitigations, but they are not guarantees.
+
+The first build is a kindness machine that cannot collect. The medical-grade build is a **regulated clinical instrument** that collects nothing centrally, trains federatedly, evaluates against clinician-adjudicated edge cases, and submits to independent behavioral audit. The architecture is the ethics: **the model cannot harm what it never holds, and cannot claim what it cannot prove.**
+
+"Continue to do deep research and analysis and provide optimal suggestions "
+
+The research from the past eighteen months changes several assumptions in the earlier design. The zero-server ideal is now **empirically demonstrated** (MindCare performs PHQ-9/GAD-7 entirely client-side), on-device psychiatric AI achieves **diagnostic accuracy comparable to server-side predecessors** on commodity mobile hardware, and the regulatory landscape has a new middle path (TEMPO). But the research also exposes harder truths: **crisis-detection recall for implicit passive ideation remains insufficient for autonomous deployment**, **70% of audited mental health apps share data with third parties**, and the cozy-games evidence base is **weaker than its reputation suggests**. This report fills the gaps those findings create and provides optimal suggestions for the remaining open problems.
+
+---
+
+## 1. The Zero-Server Architecture Is Now Proven—Adopt It as the Baseline
+
+The strongest new evidence is **MindCare**, a privacy-first, zero-server mental wellness platform that performs **PHQ-9, GAD-7, and PSS assessments entirely locally** using client-side web storage. The application processes responses in real time, delivers personalized recommendations and longitudinal tracking, and **never transmits sensitive personal data to any backend server**. The authors explicitly frame this as a response to the "trust gap" created by centralized architectures: **70% of audited mental health apps share data with third parties**, and sensitive clinical data retention often **exceeds 7+ years without user consent**.
+
+**Optimal suggestion:** Make the zero-server pattern the **default for every feature that does not inherently require a server**. The only legitimate server-side functions are:
+1. **Ephemeral multiplayer state** (deleted when the session ends).
+2. **Anonymous mailbox relay** (content-blind, metadata-stripped).
+3. **Aggregate, differentially private analytics** (no individual-level records).
+
+Everything else—assessments, journaling, NPC conversation memory, mood tracking, avatar data—lives on-device, encrypted with a user-held key. This is no longer a design aspiration; it is a **demonstrated, deployable architecture**.
+
+---
+
+## 2. Age Assurance Without Identity Collection Is Solved
+
+The COPPA deadline of **April 22, 2026** made age screening mandatory, but the research confirms a solution that **collects zero personal data**: **on-device facial age estimation (FAE)**. PrivateID's implementation processes a selfie **entirely on the user's device**, returns a threshold decision (above/below 13, 16, 18, or 21) in **20 milliseconds**, and **never transmits any image, template, or PII**. Because no personal data leaves the device, **user consent—including parental consent for minors under COPPA—is not required**, and the flow does not trigger GDPR, CCPA, or BIPA obligations. The model is certified to **EAL3 by the Age Check Certification Scheme (ACCS)** for robustness across genders and ethnicities.
+
+**Optimal suggestion:** Deploy on-device FAE as the **primary age gate**, with on-device selfie + government ID as an optional step-up for users near a critical threshold. The server receives **only a boolean proof** ("this user is 13+")—never an age estimate, image, or birth date. For under-13 users, the platform either blocks access or offers a **revocable parental consent token** that stores no child identity. This satisfies COPPA **without building a centralized face database**—which the research explicitly identifies as the risk to avoid.
+
+---
+
+## 3. The Medical-Grade Model: Consortium Architecture and Federated Training
+
+The **zero-egress psychiatric AI** research establishes that a **consortium of lightweight, fine-tuned, quantized open-source models** can run entirely on-device with **diagnostic accuracy comparable to server-side predecessors** and **real-time inference latency on commodity mobile hardware**. This is the correct architectural template.
+
+### Federated Training with Differential Privacy
+
+The **NeuroBridge** system demonstrates the full pipeline: **federated learning** for model updates from anonymized, localized training on devices, combined with **differential privacy mechanisms and secure aggregation protocols** to maintain privacy. **Fed-XLM-R** extends this to **resource-constrained edge devices** with **adapter-scoped differential privacy** for mental health triage-level intent classification. **FedMentor** shows that domain-aware differential privacy in heterogeneous federated LLMs **raises safe output rates by up to three points and lowers toxicity** while maintaining utility within **0.5% of the non-private baseline**.
+
+**Optimal suggestion:** Train the medical-grade consortium using **FedProx-style federated learning with DP-SGD applied to adapter gradients** (the DP-Prox/DP-LAC stack from the earlier design), validated by Fed-XLM-R's edge-device constraints. The privacy budget should be **ε ≤ 1** for clinical data, with the performance trade-off **documented and accepted by the clinical advisory board**, not decided by engineering alone.
+
+### The Training Data Constitution Must Be Enforced by Provenance
+
+The research on ethical training data is unambiguous: **scraping public social media for health AI is ethically prohibited even when legally permissible**, because users do not consent to health-related analysis or AI training when they share content for social interaction. The only defensible sources are:
+- **Expert-authored psychiatric textbooks and casebooks** (the PsychiatryBench model).
+- **Consented, IRB-approved clinical data with research licensing agreements**.
+- **Synthetic data for edge cases**, validated by clinicians.
+- **Community review** by lived-experience panels before training.
+
+**Optimal suggestion:** Implement a **provenance ledger** at the data layer, not the documentation layer. Every training example is cryptographically signed with its source, license, and reviewer. No example enters the training pipeline without a complete provenance record. This is the only way to answer a regulator's question "where did this behavior come from?" with evidence rather than assertion.
+
+---
+
+## 4. Crisis Escalation: The ASL-MH Framework and the Recall Problem
+
+The **Six-Tier AI Safety Levels for Mental Health (ASL-MH)** framework provides a clinically useful classification that should govern the medical-grade model's scope:
+
+| Level | Definition | Implication for the platform |
+| :--- | :--- | :--- |
+| **ASL-MH 1** | General AI; no mental health features | Not applicable |
+| **ASL-MH 2** | Education only; disclaimers; no personalized advice | The first non-collecting build sits here |
+| **ASL-MH 3** | Supportive chat/tools; **human oversight**; **not for crises** | The medical-grade build's maximum safe scope until crisis-detection recall improves |
+| **ASL-MH 4** | Clinical decision support; licensed use; validated, transparent | Requires clinician supervision; not a consumer product |
+| **ASL-MH 5** | Autonomous therapy guidance; co-managed; limited autonomy | Years away; requires RCT evidence |
+| **ASL-MH 6** | Experimental high-risk systems; research-only | Not deployable |
+
+The framework is clear: **ASL-MH 3 explicitly requires human oversight and is not for crises**. The research confirms why: a crisis-detection system with **94.2% overall red-flag recall still missed 58 of 1,000 positive crisis expressions**, with the lowest recall for **implicit passive ideation (85.6%)**. A separate evaluation found that AI psychotherapists showed a **"distinct operational gap between proactive risk identification and reactive crisis management"**, and in at least one simulated case, **the patient committed suicide after the session**.
+
+**Optimal suggestion:** The medical-grade model must **never be the sole crisis detector**. Deploy a **layered system**:
+1. **On-device pattern detection** (keyword and phrase matching) as a fast, deterministic backstop.
+2. **On-device model inference** for contextual understanding.
+3. **Human moderator** available for Tier 2+ escalations, with **response-time targets and fallback chains**.
+4. **Automatic escalation to emergency services guidance** for Tier 3 events, with location-aware resources.
+
+The model's scope should be **capped at ASL-MH 3** until per-language, per-presentation crisis-detection recall exceeds **95% for implicit passive ideation**, validated on clinician-adjudicated test sets.
+
+---
+
+## 5. The TEMPO Pathway and the Regulatory Vacuum
+
+The **FDA-CMS TEMPO pilot** is the only available middle path for a generative-AI mental health device. It allows companies to **commercialize using a Quality Management System (QMS) without immediate premarket authorization**, operating as a sandbox for real-world data, with the possibility of future clearance supported by that data. The first participant selected was **SonderMind's Adjunctive Care Application (SACA)** for behavioral health. The FDA plans to select **up to 40 TEMPO participants** across four clinical use areas.
+
+But the research is blunt about the barrier for generative AI: **"The barrier to entry for FDA clearance is particularly high for companies developing generative AI-enabled products"**, because **"FDA has not yet established a comprehensive framework defining how those risks should be evaluated"**. The path is **"highly indeterminate, and the only path forward is through multiple FDA interactions, each of which is a multi-month process"**.
+
+**Optimal suggestion:** Apply for TEMPO **only after** the medical-grade model has completed preclinical evaluation and pilot safety review. In the interim, frame the platform as a **wellness tool under FDA enforcement discretion** (Section 3060 of the 21st Century Cures Act) and **never claim to diagnose, treat, or screen for a condition**. The TEMPO application should be built on the **QMSR-compliant quality system** from day one, so the pilot is a validation of an existing system rather than a retrofit.
+
+---
+
+## 6. Cozy Games: Real Effects, Weaker Evidence Than Assumed
+
+The research confirms that cozy games **do produce measurable relaxation and stress reduction**: participants who spent **one extra hour per day** playing cozy games experienced **"greatly reduced stress and an increase in mental health"**. *Flower* produced effects **"almost identical to practicing mindfulness meditation"** among 80 students. Players describe cozy games as helping them **"enter relaxed, meditative states and reduce their daily stress"**, and researchers attribute this to the fact that **"engaging in genuine play is good for you and is restorative"**.
+
+**The gap:** most of this evidence is **self-report and small-sample**, and the majority of the research focuses on a handful of commercial titles (*Animal Crossing*, *Stardew Valley*, *Flower*). There is **no large-scale clinical trial** of a purpose-built cozy game for a clinical population.
+
+**Optimal suggestion:** Build **measurement into the game layer from launch**. Optional, one-tap pre/post session mood check-ins; aggregate, differentially private analytics; and a partnership with an academic clinical psychology department for an **IRB-approved evaluation** of the platform's calming and connecting effects. Do not market the games as therapy. Market them as **relaxation and connection tools whose benefits are being studied**—and then actually study them.
+
+---
+
+## 7. Multiplayer Moderation: From Toxicity Punishment to Prosocial Encouragement
+
+The research shows a **paradigm shift** in game chat moderation: from solely penalizing toxicity to **actively classifying, rewarding, and promoting prosocial behaviors**. The **Self-Anchored Attention Model (SAAM)** achieves a **7.9% improvement** over the best existing technique for prosocial classification in game chat, using the entire training set as "anchors" to compensate for scarce labeled data. This is the **first automated system for classifying prosocial behaviors in in-game chats**, and it was validated on *Call of Duty: Modern Warfare II*.
+
+**Optimal suggestion:** Deploy a **two-sided classifier**:
+- **Harmful content filter** (toxicity, harassment, toxic positivity).
+- **Prosocial content detector** (SAAM-style) that can **surface, highlight, and gently reward** kind interactions—e.g., highlighting a supportive note in the mailbox, or having an NPC acknowledge a player who helped someone else.
+
+The platform's phrase library and emoji set are already a **hard constraint** that eliminates most toxicity. The prosocial classifier is the **positive reinforcement layer** on top of that constraint.
+
+---
+
+## 8. The Data-Minimization Gaps the Research Still Leaves Open
+
+### Gap 1: Multiplayer State Minimization
+
+The zero-server research does not address real-time multiplayer, which inherently requires ephemeral server state. The resolution is **ephemeral, unlinkable session tokens**: the server holds only positions, moves, and scores; that state is **deleted when the session ends**; matchmaking uses **one-time tokens** that cannot be linked across sessions. No persistent record of who played with whom, when, or for how long.
+
+### Gap 2: The AI Model Itself as a Data Vector
+
+An on-device model can **memorize training data** and leak it through inference. The research on differential privacy in federated training addresses the training pipeline, but **inference-time memorization** requires additional mitigations: **output perturbation** for sensitive contexts, **membership inference defenses**, and **regular audits** with canary tokens in the training data to detect leakage.
+
+### Gap 3: Accessibility of the Privacy Architecture
+
+A zero-server, on-device architecture **requires capable hardware**. The research shows that on-device psychiatric AI runs on **commodity mobile hardware**, but low-end devices may struggle with the medical-grade consortium. **Optimal suggestion:** Offer a **tiered architecture**—a lightweight first-build NPC that runs on any device, and a medical-grade consortium that requires a minimum hardware profile, with a **clear, non-stigmatizing explanation** of why the richer experience requires more capable hardware.
+
+### Gap 4: The Legal Status of On-Device Data
+
+If data never leaves the device, **is it still "personal data" under GDPR?** The research on on-device age estimation argues that **no personal data leaves the device**, so consent is not required. But on-device data is still **accessible to the user and to anyone with device access**. The platform's **privacy policy must be honest**: "We cannot access your data, but your device can." Offer **device-level encryption** and **remote wipe** for lost devices, and **never claim absolute security**—only **architectural minimization**.
+
+---
+
+## 9. Nonprofit Sustainability: The SEEN Model and the Mixed Funding Stack
+
+The **SEEN International Foundation** provides a working template: a **501(c)(3) public charity** that built a **free, no-signup, no-ads, no-data-collected** mental health education platform covering **42 conditions in 130+ languages**, with **PHQ-9 and GAD-7 screening free to anyone on earth**, **crisis resources on every page**, and **zero barriers to access**. It was built **alone, in 9 weeks, with no outside funding**, and is now registered with the UN (SDG 3.4), approved for Google for Nonprofits, and listed on Benevity.
+
+**Optimal suggestion:** Adopt a **mixed, mission-aligned funding stack**:
+- **501(c)(3) status** with radical financial transparency (annual audit, public funding sources).
+- **Grants** from mental health foundations and youth wellbeing funds (multi-year, not one-off).
+- **Donations and bequests** with **zero-fee processing** (e.g., Zeffy).
+- **Mission-aligned earned revenue**: a **gift-a-subscription** model where paying users support free access for others—**never paywalling crisis features, safety resources, or the core calm experience**.
+- **No ads, no data selling, no sponsored content**. This is non-negotiable and should be in the bylaws, not just the marketing.
+
+---
+
+## 10. The Revised Roadmap: What Changes and What Stays
+
+| Phase | Original plan | Revision based on new evidence |
+| :--- | :--- | :--- |
+| **0: Foundations** | Legal entity, clinical board, DPIA | **Add**: on-device FAE age gate; zero-server assessment layer (MindCare pattern) |
+| **1: Quiet Hub** | Hub, avatar, bench, mailbox, one NPC, chess | **Add**: prosocial classifier for mailbox; session-only NPC memory; ephemeral multiplayer tokens |
+| **2: Expressive Identity** | Quadruped/taur locomotion, plurality support | **Add**: on-device identity note storage; no server-side kintype parsing |
+| **3: Cozy Games** | Fishing, gardening, free-skate | **Add**: optional mood check-ins; IRB-approved evaluation partnership; **do not claim therapeutic benefit** |
+| **4: Medical-Grade Model** | Consortium, federated training, PCCP | **Revise**: cap scope at ASL-MH 3 until crisis-recall thresholds met; apply to TEMPO **after** preclinical and pilot; provenance ledger mandatory |
+| **5: Evaluation** | RCT, accessibility audit, cultural adaptation | **Add**: per-language, per-presentation crisis-recall validation; independent behavioral audit (Nature Medicine framework) |
+
+---
+
+The research confirms that the **architecture can be the ethics**: a zero-server, on-device, differentially private platform **cannot misuse what it never holds**. But it also confirms that **safety is not a property of the architecture alone**—it requires human oversight, layered crisis detection, independent audit, and the humility to cap the model's scope at what the evidence supports. The platforms that have harmed people are not the ones that lacked ambition; they are the ones that **shipped a model before the human safety net was in place**. Build the net first.
+
+"Proceed optimally with filling all gaps "
+
+The research from late 2025 and 2026 closes several gaps but also exposes where the earlier design was too optimistic. The most important finding is that the **zero-server, on-device architecture is no longer theoretical**—MindScribe demonstrates a fully offline mental health agent using Llama 3.2 and local WebGPU speech processing, storing everything in a secure offline database with RAG-based long-term memory. But the evidence also shows that **crisis detection alone is not enough**: a RAND study found chatbots' risk judgments were inconsistent in the ambiguous middle of the risk scale, and Stanford testing showed therapy chatbots responded appropriately to suicidal ideation or delusions **fewer than 6 times in 10**, compared to 9 in 10 for licensed therapists. This report fills the remaining gaps with what the evidence now supports.
+
+---
+
+## 1. Nonprofit Sustainability: The Hybrid Model Is the Only Viable Path
+
+The research confirms that pure grant dependence is fragile. The working model is a **hybrid structure** that blends philanthropy with mission-aligned earned revenue without compromising the no-ads, no-data-selling promise.
+
+### The YFC Benchmark
+
+**Youth and Family Counseling (YFC)** reported that in 2025, **40% of revenue came from philanthropy and 60% from earned revenue**—a balance explicitly described as essential to mission delivery, not supplemental. The earned revenue comes from sliding-scale private pay, partnerships with schools and justice systems, and social enterprise models, while philanthropy provides the flexibility to serve clients regardless of ability to pay.
+
+### The Mission-Aligned Revenue Stack for the Platform
+
+| Revenue stream | Mechanism | Constraint |
+| :--- | :--- | :--- |
+| **501(c)(3) philanthropy** | Grants from mental health foundations, multi-year not one-off | Must be diversified; no single funder >30% of budget |
+| **Donations and bequests** | Zero-fee processing (e.g., Zeffy); monthly giving | Radical transparency: annual audit, public funding sources |
+| **Gift-a-subscription** | Paying users gift access to others; web-direct to bypass app-store fees | **Never paywall crisis features, safety resources, or the core calm experience** |
+| **Software licensing** | License non-sensitive components (e.g., the prosocial classifier, the accessibility framework) to other nonprofits | Must not create perverse incentives to collect data |
+| **Mission-aligned subsidiary** | A for-profit entity serving commercially insured populations, cross-subsidizing the free tier | Must not divert clinical or engineering resources from the free platform |
+
+**The hard line:** No advertising, no data selling, no sponsored content. These must be in the **bylaws**, not just the marketing. The research on hybrid models confirms that organizations can "blend mission-driven goals with sustainable, earned revenue streams without losing their soul"—but only if the constraints are structural, not aspirational.
+
+---
+
+## 2. Community Moderation: A Four-Practice Typology, Not a Single Function
+
+The JMIR systematized review provides the most rigorous framework available. Moderation in online mental health communities involves **four distinct practices**, and conflating them is a design error:
+
+| Practice | What it involves | Platform implementation |
+| :--- | :--- | :--- |
+| **Pre-moderation and post-moderation** | Reviewing content before or after publication; rule enforcement | Mailbox notes pass automated filter before visibility; human review queue for flagged content |
+| **Reactive moderation** | Responding to reported content, crises, and conflicts | Tiered crisis escalation; user reporting with trauma-informed flow |
+| **Building the community** | Facilitating supportive interactions, fostering engagement, modeling norms | NPCs and prosocial classifier highlight kind interactions; lived-experience moderators model supportive responses |
+| **Monitoring members** | Tracking individual risk, contacting external services when needed | **Separate from content moderation**; requires clinical supervision and clear boundaries |
+
+### The Critical Finding: Moderators Do Relational Work, Not Just Content Work
+
+The review is explicit: moderation is **"a complex form of sociotechnical and relational work that sits at the intersection of community facilitation, risk management, and mental health support"**. Many communities rely on **peer moderators with lived experience**, which raises "important questions regarding the training, supervision, and institutional support required to sustain these roles safely and effectively".
+
+The realist synthesis on moderator needs adds concrete recommendations:
+- Training **personalized to the specific forum culture**, co-designed with and delivered by experienced moderators.
+- **Shadowing** more experienced moderators, with practice shifts and feedback.
+- Reminding moderators of **what is realistic** in terms of how much control they have over users' situations—an explicit guard against burnout and over-intervention.
+- **Evolving, up-to-date guidance** on identifying and responding to risk.
+
+**Optimal suggestion:** Build a **two-track moderation structure**:
+1. **Content moderators** (automated + human) handle mailbox filtering, phrase library integrity, and reported content.
+2. **Peer support moderators** (lived experience, paid, clinically supervised) handle reactive support, community building, and member monitoring—with **rotating shifts, clinical supervision, and explicit boundaries** on what they are and are not responsible for.
+
+Automated moderation should be **narrowly scoped** to the mailbox and phrase library. The research warns that automated moderation of mental health communities can "create new risks, such as curbing dissemination of harm reduction materials" and failing to recognize evolving language. The phrase-library constraint already eliminates most toxicity in games; automation should not be extended into peer support spaces without careful evaluation.
+
+---
+
+## 3. Cozy Games: Real Effects, Still No Large-Scale Clinical Trial
+
+The evidence is stronger than the earlier report suggested, but the gap remains. A **randomized controlled trial at the University of Würzburg** compared cozy games to meditation and a control group, finding that **20 minutes of cozy gaming produced lowered heart rates and reduced blood pressure nearly identical to guided mindfulness meditation**. A separate study of **80 undergraduate students** at the University of Wisconsin-La Crosse compared cozy games to mindful meditation with similar results. **Mood Bloom**, a therapeutic game, completed a clinical trial at Massachusetts General Hospital showing a **40% reduction in depression and anxiety symptoms after 8 weeks**.
+
+**The remaining gap:** There is still **no large-scale RCT of a purpose-built cozy game for a clinical population** published in a major journal. The Würzburg and Wisconsin studies are small, laboratory-based, and use commercial games. The evidence supports **physiological calming effects** but not yet **clinical efficacy for depression or anxiety** in a real-world platform.
+
+**Optimal suggestion:** Partner with an academic clinical psychology department for an **IRB-approved pragmatic trial** of the platform's cozy game layer. Use **optional, one-tap pre/post session mood check-ins** and **aggregate, differentially private analytics** to generate real-world evidence. Do not claim therapeutic benefit in marketing until the trial data exists. Market the games as **"relaxation tools being studied"**—and then publish the results, positive or negative.
+
+---
+
+## 4. On-Device AI: The Architecture Is Proven, but the Model Scope Must Be Capped
+
+**MindScribe** demonstrates the full offline stack: Llama 3.2 for inference, local WebGPU for speech processing, secure offline storage, CBT prompts, DASS-21 assessments, and **RAG-based long-term memory**—all without internet connectivity. The **ResilienceAI** project confirms that **WebLLM with Llama 3.2 (1B/3B), Qwen 2.5 (1.5B), and Gemma 2 (2B)** run in-browser with WebGPU acceleration and WASM fallback. The **Boundless Bridge** project ran **quantized Gemma 2 2B via WebGPU** with deterministic fallback scripts, and explicitly addressed the challenge of "ensuring strict architectural boundaries so browser-only WebGPU libraries never crashed server-side rendering".
+
+### The Model Scope Cap: ASL-MH 3 and No Higher
+
+The **Six-Tier AI Safety Levels for Mental Health (ASL-MH)** framework, combined with the RAND and Stanford findings, makes the cap unambiguous. A system that responds appropriately to suicidal ideation **fewer than 6 times in 10** cannot be the sole crisis handler. The medical-grade model must be **capped at ASL-MH 3**: supportive chat and tools, **human oversight required**, **not for crises**.
+
+**Optimal suggestion:** The on-device model should handle:
+- **Education and coping skills** (CBT prompts, grounding exercises, psychoeducation).
+- **Validation and reflective listening**.
+- **Resource surfacing** when risk is detected.
+
+It must **never**:
+- Attempt to assess, triage, or manage a crisis alone.
+- Generate free-text clinical advice.
+- Operate without a human moderator available for Tier 2+ escalation.
+
+The **deterministic fallback scripts** from Boundless Bridge are the correct model: if the model is uncertain, it falls back to a **pre-written, clinically reviewed response** rather than generating something novel.
+
+---
+
+## 5. Crisis Escalation: The Four Jobs and the Tiered Handoff
+
+The Decision Lab's framework provides the clearest operational specification available. A safety escalation system has **four jobs**:
+
+1. **Recognize when the product is out of its depth.** Clinician-defined triggers tell the product it can no longer safely support the person alone.
+2. **Route the person to the right level of human help.** Tiered handoff protocols give each level of concern a **named owner, a response-time target, a fallback, and a record of every case**.
+3. **Keep the person engaged while the handoff happens.** Communication before and during a crisis makes people willing to disclose risk and stay through the transfer.
+4. **Prove the whole system works under realistic conditions.** Testing covers the AI and the humans behind it together, and **repeats whenever the model, instructions, staffing, or crisis partners change**.
+
+### The Trigger Set
+
+Escalation should be triggered by **clinician-defined signals**, not model confidence scores:
+- Suicide or self-harm risk.
+- Harm to others.
+- Acute deterioration.
+- Possible psychosis or mania.
+- A likely minor.
+- Needs outside the product's scope.
+
+### The Handoff Protocol
+
+| Tier | Trigger | Owner | Response-time target | Fallback |
+| :--- | :--- | :--- | :--- | :--- |
+| **Tier 0** | Ambiguous distress; no explicit risk | On-device model | Immediate | Deterministic grounding script |
+| **Tier 1** | Explicit hopelessness; passive ideation | On-device model + on-call moderator | < 15 minutes | Pre-written safety script; local helplines |
+| **Tier 2** | Explicit intent, plan, or means | Human crisis responder | < 5 minutes | Emergency services guidance; location-aware resources |
+| **Tier 3** | Imminent danger to life | Clinical lead + emergency services | Immediate | Direct emergency call/chat handoff |
+
+**Critical constraint:** The model's safety must be tested **under realistic conditions**—not just on benchmark prompts. The RAND study used **13 clinical experts sorting 30 suicide-related questions into five risk levels**, then tested three chatbots **100 times each**. The platform must run the same kind of **clinician-adjudicated adversarial testing** before launch and after every model update.
+
+---
+
+## 6. Trauma-Informed Design: WCAG Is the Floor, Not the Ceiling
+
+The research is blunt: a product can achieve **full WCAG 2.2 AA compliance while deploying notification systems engineered for compulsion, content with no warnings, and opt-out copy built on shame**. Trauma-informed design is a **separate layer** that addresses psychological safety, cognitive load, and emotional regulation.
+
+### The Five Principles (Expanded for the Platform)
+
+The trauma-informed research for digital health identifies five principles:
+
+1. **Safety (physical and emotional):** No sudden sounds, no auto-play, no aggressive notifications. Content advisories before potentially distressing material. A visible "panic button" that hides content and routes to a calm space.
+2. **Choice and control:** Every setting is opt-in. Every flow has an exit. **No forced progression, no streak punishment, no "are you sure?" friction on leaving.** The user controls depth, pace, and sequence.
+3. **Collaboration and peer support:** Lived-experience panels co-design the platform. Peer moderators are paid, trained, and supervised. Users can contribute to the community through the mailbox without ever being required to.
+4. **Empowerment:** The platform's language **never implies the user is doing it wrong**. "You can make this space yours whenever you like" replaces "Complete your profile." "How would you like today to feel?" replaces "Choose your difficulty."
+5. **Cultural and identity affirmation:** Non-human forms, plurality, LGBTQ+ identities, and BIPOC experiences are **first-class, not add-ons**. The NPC cast and storylines are reviewed by cultural consultants. The phrase library is validated for politeness norms and taboo content in each language.
+
+### The Psychological Safety Audit
+
+Every screen should pass a **three-question audit** beyond WCAG:
+- **Does this screen create urgency?** If yes, remove it.
+- **Does this screen imply the user is failing?** If yes, rewrite it.
+- **Can the user leave this screen in one action?** If no, fix it.
+
+---
+
+## 7. Data Minimization: Federated Learning at ε ≤ 1 Is Now Clinically Viable
+
+The federated learning research has converged on a clear standard. A systematic review covering 2022–2025 found that the field **"quickly coalesced around differential-privacy (DP)-enabled FL, secure-aggregation methods, and customized federated fine-tuning for balancing high privacy budgets (ε ≤ 1) with clinical effectiveness"**.
+
+**Fed-XLM-R** achieves **96% accuracy retention at ε = 1.0 (δ = 10⁻⁵)** on resource-constrained edge devices for mental health triage-level intent classification. **FedMentor** integrates LoRA with **domain-aware differential privacy** to meet per-domain privacy budgets, **raising safe output rates by 2 percentage points and lowering toxicity** while keeping BERTScore and ROUGE-L close to non-private federated learning. **FedMentalCare** demonstrates the same approach with **MobileBERT and MiniLM** in federated environments.
+
+### The Privacy Budget for the Platform
+
+The platform's clinical data should use **ε ≤ 1**, with the performance trade-off **documented and accepted by the clinical advisory board**. The earlier concern that ε ≤ 1 would sacrifice too much performance is now empirically resolved: **96% accuracy retention is sufficient for supportive and educational functions**, and the model's scope is already capped at ASL-MH 3.
+
+**Optimal suggestion:** Implement **FedMentor-style domain-aware DP** so that different data domains (coping skills, psychoeducation, crisis resources) can have different privacy budgets appropriate to their sensitivity. The training pipeline should be **opt-in, revocable, and transparent**, with the user able to inspect exactly what local data was used and withdraw at any time.
+
+---
+
+## 8. The Regulatory Pathway: TEMPO Is the Only Middle Ground, but It Is Not a Guarantee
+
+The **FDA-CMS TEMPO pilot** is the most important regulatory development for the medical-grade model. It establishes a **regulatory middle ground**, allowing companies to **commercialize using a Quality Management System without immediate premarket authorization**, operating as a sandbox for real-world data. The first participant was **SonderMind's Adjunctive Care Application (SACA)** for behavioral health, and the FDA plans to select **up to 40 TEMPO participants**, including in **behavioral health (depression, anxiety)**.
+
+### The Indeterminacy Problem
+
+The npj Digital Medicine commentary is explicit: **"The barrier to entry for FDA clearance is particularly high for companies developing generative AI-enabled products"**, because **"FDA has not yet established a comprehensive framework defining how those risks should be evaluated across applications"**. The path is **"highly indeterminate, and the only path forward is through multiple FDA interactions, each of which is a multi-month process"**.
+
+**Optimal suggestion:** Apply for TEMPO **only after** the medical-grade model has completed preclinical evaluation and pilot safety review. In the interim, frame the platform as a **wellness tool under FDA enforcement discretion** (Section 3060 of the 21st Century Cures Act) and **never claim to diagnose, treat, or screen for a condition**. The TEMPO application should be built on the **QMSR-compliant quality system** from day one, so the pilot validates an existing system rather than requiring a retrofit.
+
+---
+
+## 9. The Revised Roadmap: What Changes
+
+| Phase | Original | Revision based on evidence |
+| :--- | :--- | :--- |
+| **0: Foundations** | Legal entity, clinical board, DPIA | **Add**: on-device WebLLM inference stack (Llama 3.2 / Gemma 2 / Qwen 2.5, quantized); deterministic fallback scripts; clinician-adjudicated crisis test set |
+| **1: Quiet Hub** | Hub, avatar, bench, mailbox, one NPC, chess | **Add**: four-practice moderation structure (content vs. peer support moderators); prosocial classifier for mailbox; **ASL-MH 3 scope cap documented in the NPC safety card** |
+| **2: Expressive Identity** | Quadruped/taur locomotion, plurality support | **Add**: on-device identity note storage; no server-side kintype parsing; cultural consultant review of NPC cast |
+| **3: Cozy Games** | Fishing, gardening, free-skate | **Add**: IRB-approved pragmatic trial partnership; **do not claim therapeutic benefit**; optional one-tap mood check-ins |
+| **4: Medical-Grade Model** | Consortium, federated training, PCCP | **Revise**: cap at ASL-MH 3 until per-language implicit-ideation crisis recall exceeds 95% on clinician-adjudicated sets; apply to TEMPO **after** preclinical and pilot; provenance ledger mandatory; ε ≤ 1 federated training |
+| **5: Evaluation** | RCT, accessibility audit, cultural adaptation | **Add**: **four-job crisis escalation testing** (recognize, route, engage, prove) under realistic conditions; independent behavioral audit; trauma-informed psychological safety audit beyond WCAG |
+
+---
+
+## 10. The Gaps That Remain Open
+
+1. **The exact TEMPO selection criteria for generative AI are unpublished.** The pilot accepts behavioral health devices, but no generative-AI mental health tool has been selected. The platform should prepare a TEMPO application but not depend on selection for its launch strategy.
+2. **Crisis-detection recall for implicit passive ideation is still insufficient for autonomous deployment.** At **85.6% recall**, the model cannot be the sole crisis detector. The layered system (on-device pattern detection + model inference + human moderator + emergency escalation) is mandatory, not optional.
+3. **The cozy-game evidence base still lacks a large-scale RCT for a clinical population.** The platform must generate its own evidence through an IRB-approved trial before making any clinical claims.
+4. **The moderation labor model is unresolved.** Peer moderators with lived experience are **essential** but **vulnerable to burnout and over-intervention**. Paid, supervised, rotating roles are the only sustainable model, and the cost must be budgeted from launch.
+5. **The legal status of on-device data under GDPR remains ambiguous.** If data never leaves the device, is it still "personal data"? The platform's privacy policy must be **honest about what it cannot control**: "We cannot access your data, but your device can." Offer device-level encryption and remote wipe, and **never claim absolute security**—only **architectural minimization**.
+
+The research confirms that the architecture can be the ethics, but only if the **human safety net is built first**. The platforms that have harmed people are not the ones that lacked ambition; they are the ones that **shipped a model before the moderators, clinicians, and crisis protocols were in place**. Build the net, then the model.

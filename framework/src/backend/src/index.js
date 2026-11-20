@@ -55,6 +55,22 @@ io.on('connection', (socket) => {
     socket.emit('joined-game', { gameId, socketId: socket.id });
   });
 
+  // AI response generation (server-side Gemma fallback)
+  socket.on('ai-response', async (data) => {
+    try {
+      const { prompt, intent = 'default-npc' } = data;
+      const response = await aiNpcService.generateResponse(prompt, intent);
+      socket.emit('ai-response', {
+        id: socket.id,
+        prompt,
+        response,
+        timestamp: new Date().toISOString(),
+      });
+    } catch (err) {
+      socket.emit('ai-response-error', { error: 'Failed to generate AI response' });
+    }
+  });
+
   // Chat message (positive-only validation)
   socket.on('chat-message', async (data) => {
     try {

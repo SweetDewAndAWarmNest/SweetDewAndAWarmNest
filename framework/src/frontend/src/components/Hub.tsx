@@ -18,6 +18,7 @@ interface HubProps {
   roomId: string;
   chat: ChatMessage[];
   onSendMessage: (text: string, roomId: string) => void;
+  library?: Record<string, string>;
 }
 
 // ── Theme helpers ──────────────────────────────────────
@@ -62,34 +63,82 @@ function HubScene() {
 
 // ── Chat bubble ────────────────────────────────────────
 function ChatBubble({ message, isOwn }: { message: ChatMessage; isOwn: boolean }) {
+  const isAI = message.isAI || (message.sender === 'ai');
+  const isSystem = message.sender === 'system';
+  const displayName = isAI ? 'AI Companion' : isSystem ? 'System' : (isOwn ? 'You' : 'Companion');
+  const bubbleClass = isOwn ? 'own' : isAI ? 'ai-bubble' : isSystem ? 'system-bubble' : 'guest';
+  const bubbleColor = isOwn ? theme.accent : isAI ? '#4a9eff' : isSystem ? '#888' : theme.text;
+  const avatarColor = isOwn ? theme.accent : isAI ? '#4a9eff' : isSystem ? '#888' : '#8b7565';
+
   return (
     <div
-      className={`chat-bubble ${isOwn ? 'own' : 'guest'}`}
+      className={`chat-bubble ${bubbleClass}`}
       style={{
         maxWidth: '80%',
         animation: `fadeIn 0.3s ease-out`,
       }}
     >
-      <p
-        className="chat-text"
-        style={{
-          fontFamily: 'Inter, system-ui, sans-serif',
-          fontSize: '14px',
-          lineHeight: '1.5',
-          color: isOwn ? theme.accent : theme.text,
-        }}
-      >
-        {message.text}
-      </p>
-      <span className="chat-time" style={{ color: theme.textSecondary, fontSize: '11px' }}>
-        {new Date(message.timestamp).toLocaleTimeString()}
-      </span>
+      <div style={{ display: 'flex', alignItems: 'flex-start', gap: '8px' }}>
+        <div style={{ flexShrink: 0, marginTop: '2px' }}>
+          <div
+            style={{
+              width: '28px',
+              height: '28px',
+              borderRadius: '50%',
+              background: bubbleColor,
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              fontSize: '12px',
+              fontWeight: 600,
+              color: '#fff',
+            }}
+          >
+            {isAI ? 'AI' : isSystem ? '·' : (isOwn ? 'Y' : '♡')}
+          </div>
+        </div>
+        <div style={{ flex: 1 }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '6px', marginBottom: '2px' }}>
+            <p
+              style={{
+                fontFamily: 'Inter, system-ui, sans-serif',
+                fontSize: '12px',
+                fontWeight: 600,
+                color: bubbleColor,
+              }}
+            >
+              {displayName}
+            </p>
+            <span
+              style={{
+                fontFamily: 'Inter, system-ui, sans-serif',
+                fontSize: '10px',
+                color: theme.textSecondary,
+              }}
+            >
+              {new Date(message.timestamp).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+            </span>
+          </div>
+          <p
+            className="chat-text"
+            style={{
+              fontFamily: 'Inter, system-ui, sans-serif',
+              fontSize: '14px',
+              lineHeight: '1.5',
+              color: bubbleColor,
+              fontStyle: isSystem ? 'italic' : 'normal',
+            }}
+          >
+            {message.text}
+          </p>
+        </div>
+      </div>
     </div>
   );
 }
 
 // ── Hub ────────────────────────────────────────────────
-export function Hub({ roomId, chat, onSendMessage }: HubProps) {
+export function Hub({ roomId, chat, onSendMessage, library = {} }: HubProps) {
   const [messages, setMessages] = useState(chat);
   const [input, setInput] = useState('');
   const chatEndRef = useRef<HTMLDivElement>(null);
@@ -114,7 +163,7 @@ export function Hub({ roomId, chat, onSendMessage }: HubProps) {
     <div className="hub">
       <header className="hub-header">
         <h1 style={{ fontSize: '2rem', fontFamily: 'Playfair Display, serif' }}>
-          Soft Dew And A Warm Nest
+          Sweet Dew And A Warm Nest
         </h1>
         <p style={{ color: theme.textSecondary }}>
           A calm sanctuary — take your time, breathe, and be here.
@@ -176,34 +225,31 @@ export function Hub({ roomId, chat, onSendMessage }: HubProps) {
                 Phrase Library
               </summary>
               <div style={{ padding: '8px 12px' }}>
-                {Object.entries({
-                  greeting: "Hello! I'm glad you're here.",
-                  thanks: "Thank you! That means a lot.",
-                  empathy1: "That sounds really hard. I'm listening.",
-                  ground1: "Let's take a slow breath together.",
-                  suggestion1: "Would you like to explore the hub together?",
-                  kindness1: "You are enough, exactly as you are.",
-                }).map(([id, text]) => (
-                  <button
-                    key={id}
-                    onClick={() => onSendMessage(text, roomId)}
-                    style={{
-                      display: 'block',
-                      width: '100%',
-                      padding: '6px 10px',
-                      margin: '4px 0',
-                      borderRadius: '6px',
-                      border: `1px solid ${theme.border}`,
-                      background: theme.surface,
-                      color: theme.text,
-                      cursor: 'pointer',
-                      fontSize: '13px',
-                      fontFamily: 'Inter, system-ui, sans-serif',
-                    }}
-                  >
-                    {id}: {text}
-                  </button>
-                ))}
+                {library && Object.entries(library).length > 0 ? (
+                  Object.entries(library).map(([id, text]) => (
+                    <button
+                      key={id}
+                      onClick={() => onSendMessage(text, roomId)}
+                      style={{
+                        display: 'block',
+                        width: '100%',
+                        padding: '6px 10px',
+                        margin: '4px 0',
+                        borderRadius: '6px',
+                        border: `1px solid ${theme.border}`,
+                        background: theme.surface,
+                        color: theme.text,
+                        cursor: 'pointer',
+                        fontSize: '13px',
+                        fontFamily: 'Inter, system-ui, sans-serif',
+                      }}
+                    >
+                      {id}: {text}
+                    </button>
+                  ))
+                ) : (
+                  <p style={{ fontSize: '12px', color: theme.textSecondary }}>Loading phrase library...</p>
+                )}
               </div>
             </details>
           </div>

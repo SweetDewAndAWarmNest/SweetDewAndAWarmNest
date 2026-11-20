@@ -60,9 +60,18 @@ function validateMessage(text, roomId) {
     }
   }
 
-  // Default: allow the message (server-side hard validation would happen in production)
-  // For now, we allow but flag for review
-  return { valid: true, text: lower, allowed: true, review: true };
+  // HARD VALIDATION: Block any message not in the approved phrase library
+  // This is the production enforcement point — the server rejects any message
+  // that is not in the approved phrase library.
+  return {
+    valid: false,
+    reasons: [
+      'Message not in the approved positive phrase library. ' +
+      'Only pre-approved phrases are allowed. Please choose a phrase from the library.',
+    ],
+    text: '',
+    blocked: true,
+  };
 }
 
 const chatService = {

@@ -8,6 +8,8 @@ interface ChatMessage {
   timestamp: string;
   validated: boolean;
   isOwn?: boolean;
+  isAI?: boolean;
+  sender?: 'user' | 'ai' | 'system';
 }
 
 // ═══════════════════════════════════════════════════════
@@ -57,14 +59,31 @@ function connectSocket(roomId: string) {
   socket.onmessage = (event) => {
     try {
       const msg = JSON.parse(event.data);
-      if (msg.type === 'chat-message') {
-        console.log('[socket]', msg);
-      }
+      window.dispatchEvent(new CustomEvent('chat-message', { detail: msg }));
     } catch {
       // binary or non-JSON
     }
   };
+  socket.onclose = () => {
+    socket = null;
+    setIsConnected(false);
+  };
 }
+
+// ── AI NPC service ─────────────────────────────────────
+const aiNpcService = {
+  // Generate a response using server-side Gemma (or retrieval fallback)
+  async generateResponse(prompt: string, intent: string = 'default-npc'): Promise<string> {
+    return new Promise((resolve, reject) => {
+      if (!socket || socket.readyState !== WebSocket.OPEN) {
+        reject(new Error('Not connected to server'));
+        return;
+      }
+      socket.send(JSON.stringify({ type: 'ai-response', prompt, intent }));
+      // The response will arrive via the onmessage handler (see above)
+    });
+  },
+};
 
 // ═══════════════════════════════════════════════════════
 // Hub container
@@ -72,43 +91,82 @@ function connectSocket(roomId: string) {
 export function HubContainer() {
   const [roomId] = useState(`nest-${Date.now()}`);
   const [messages, setMessages] = useState<ChatMessage[]>([]);
+  const [library, setLibrary] = useState<Record<string, string>>({});
+  const [isConnected, setIsConnected] = useState(false);
+  const [loadingLibrary, setLoadingLibrary] = useState(true);
 
+  // Subscribe to chat-message events
   useEffect(() => {
     // Load phrase library
-    chatService.loadLibrary().then(() => {
-      // Library loaded but not rendered in this simplified UI
-    }).finally(() => {
-      // Connection established
+    chatService.loadLibrary().then((lib) => {
+      setLibrary(lib);
+      setLoadingLibrary(false);
+    }).catch(() => {
+      setLoadingLibrary(false);
     });
 
     // Connect to backend WebSocket
     connectSocket(roomId);
+    setIsConnected(true);
 
     // Subscribe to chat messages
-    const handleMessage = (msg: unknown) => {
-      setMessages((prev) => [...prev, msg as ChatMessage]);
+    const handleMessage = (e: Event) => {
+      const msg = (e as CustomEvent).detail as ChatMessage;
+      if (msg) {
+        setMessages((prev) => [...prev, msg]);
+      }
     };
     window.addEventListener('chat-message', handleMessage as unknown as EventListener);
     return () => window.removeEventListener('chat-message', handleMessage as unknown as EventListener);
   }, [roomId]);
 
   const handleSendMessage = async (text: string, roomId: string) => {
-    // Validate locally first (positive-only)
+    // Validate message against phrase library
     const result = await chatService.validateMessage(text);
-    if (result.valid) {
-      const msg: ChatMessage = {
-        id: `local-${Date.now()}`,
+    if (!result.valid) {
+      return;
+    }
+
+    const msg: ChatMessage = {
+      id: `user-${Date.now()}`,
+      roomId,
+      text: result.text,
+      timestamp: new Date().toISOString(),
+      validated: true,
+      isOwn: true,
+      sender: 'user',
+    };
+    setMessages((prev) => [...prev, msg]);
+
+    // Broadcast to backend
+    if (socket && socket.readyState === WebSocket.OPEN) {
+      socket.send(JSON.stringify({ type: 'chat-message', text: result.text, roomId }));
+    }
+
+    // Generate AI response (server-side Gemma fallback)
+    try {
+      const aiResponse = await aiNpcService.generateResponse(result.text, 'chat');
+      const aiMsg: ChatMessage = {
+        id: `ai-${Date.now()}`,
         roomId,
-        text: result.text,
+        text: aiResponse,
         timestamp: new Date().toISOString(),
         validated: true,
-        isOwn: true,
+        isOwn: false,
+        sender: 'ai',
       };
-      setMessages((prev) => [...prev, msg]);
-      // Broadcast to backend
-      if (socket) {
-        socket.send(JSON.stringify({ type: 'chat-message', text: result.text, roomId }));
-      }
+      setMessages((prev) => [...prev, aiMsg]);
+    } catch (err) {
+      const sysMsg: ChatMessage = {
+        id: `sys-${Date.now()}`,
+        roomId,
+        text: "I'm having trouble connecting right now. Let's just rest here together.",
+        timestamp: new Date().toISOString(),
+        validated: true,
+        isOwn: false,
+        sender: 'system',
+      };
+      setMessages((prev) => [...prev, sysMsg]);
     }
   };
 

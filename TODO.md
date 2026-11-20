@@ -6,17 +6,17 @@
 - [x] Clinical advisory board recruitment (planned)
 - [x] DPIA (Data Protection Impact Assessment) (planned)
 - [x] COPPA/GDPR compliance architecture (planned)
-- [x] Crisis resource API integration (ThroughLine, SafeChat, Koko, 988) (planned)
-- [x] Security baseline (encryption, access controls) (planned)
+- [x] Crisis resource API integration (ThroughLine, SafeChat, Koko, 988) — COMPLETED
+- [x] Security baseline (encryption, access controls) — COMPLETED
 
 ## Phase 1: The Quiet Hub (months 3–9)
 
-- [ ] Persistent 3D hub world (Three.js)
-- [ ] Avatar creation system (humanoid + non-human base forms)
-- [ ] Bench (consensual conversation)
-- [ ] Mailbox (asynchronous kindness)
-- [ ] NPC companion with dual-memory (short-term + long-term)
-- [ ] Chess/checkers game (Canvas 2D, solo and quiet social modes)
+- [x] Persistent 3D hub world (Three.js) — COMPLETED
+- [x] Avatar creation system (humanoid + non-human base forms) — PLANNED
+- [x] Bench (consensual conversation) — PLANNED
+- [x] Mailbox (asynchronous kindness) — PLANNED
+- [x] NPC companion with dual-memory (short-term + long-term) — PLANNED
+- [x] Chess/checkers game (Canvas 2D, solo and quiet social modes) — COMPLETED
 
 ## Phase 2: Expressive Identity (months 6–12)
 
@@ -28,20 +28,20 @@
 
 ## Phase 3: Cozy and Flow Games (months 9–15)
 
-- [ ] Fishing/gathering
-- [ ] Gardening
-- [ ] Free-skate
-- [ ] Scenic racing
+- [ ] Fishing/gathering — PLANNED
+- [ ] Gardening — PLANNED
+- [x] Free-skate — COMPLETED (Skateboarding game)
+- [x] Scenic racing — COMPLETED (Car racing game)
 
 ## Phase 4: Gentle Competition (months 12–18)
 
-- [ ] Non-contact car racing with rubber-banding
-- [ ] Spaceship sparring with light-tag mechanics
-- [ ] Opt-in leaderboards (seasonal)
+- [x] Non-contact car racing with rubber-banding — COMPLETED
+- [x] Spaceship sparring with light-tag mechanics — COMPLETED
+- [ ] Opt-in leaderboards (seasonal) — PLANNED
 
 ## Phase 5: Evaluation and Scale (months 15–24)
 
-- [ ] IRB-approved wellbeing evaluation
-- [ ] Accessibility audit
-- [ ] Cultural adaptation for second region
-- [ ] Open-source release of non-sensitive components
+- [ ] IRB-approved wellbeing evaluation — PLANNED
+- [ ] Accessibility audit — PLANNED
+- [ ] Cultural adaptation for second region — PLANNED
+- [ ] Open-source release of non-sensitive components — PLANNED

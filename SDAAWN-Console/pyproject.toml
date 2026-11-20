@@ -1,0 +1,73 @@
+[project]
+name = "sdaawn-console"
+version = "1.0.0"
+description = "SDAAWN Console - Hybrid Python/Rust desktop GUI for website management, telemetry, and CI/CD"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [{ name = "SDAAWN Team" }]
+
+dependencies = [
+    # GUI Framework
+    "PySide6>=6.7.0",
+    # HTTP/Web requests
+    "requests>=2.31.0",
+    "httpx>=0.26.0",
+    # Git operations
+    "GitPython>=3.1.0",
+    # YAML/JSON config
+    "PyYAML>=6.0",
+    "tomli>=2.0.1",
+    # Command execution
+    "subprocess-tee>=1.0.0",
+    # Logging
+    "structlog>=23.0.0",
+    # Threading/async
+    "asyncio>=3.4.3",
+    "concurrent.futures>=3.4.1",
+    # Environment variables
+    "python-dotenv>=1.0.0",
+    # Data visualization (inline charts)
+    "pyqtgraph>=0.13.0",
+    # CLI terminal
+    "pyte>=0.8.0",
+    # IPC for Rust-Python communication
+    "zeromq>=0.0.10",
+    # File watching
+    "watchdog>=3.0.0",
+    # OpenAPI/JSON schema
+    "jsonschema>=4.21.0",
+    # Date/time handling
+    "pendulum>=3.0.0",
+]
+
+dev-dependencies = [
+    "pytest>=8.0.0",
+    "pytest-asyncio>=0.21.0",
+    "black>=23.0.0",
+    "mypy>=1.7.0",
+    "ruff>=0.1.0",
+]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "strict"
+filterwarnings = ["ignore::DeprecationWarning"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+extend-exclude = ["build", "dist", "*.egg-info"]
+
+[tool.mypy]
+python_version = "3.11"
+strict = false
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
+check_untyped_defs = true

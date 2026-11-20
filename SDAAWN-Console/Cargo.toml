@@ -1,0 +1,53 @@
+[package]
+name = "sdaawn-console-rs"
+version = "1.0.0"
+description = "Rust performance components for SDAAWN Console - CLI terminal engine and telemetry processor"
+edition = "2021"
+license = "MIT"
+
+[lib]
+name = "sdaawn_console_rs"
+path = "src/lib.rs"
+
+[dependencies]
+# Python bindings
+pyo3 = { version = "0.21", features = ["extension-module"] }
+pyo3-log = "0.10"
+# Async runtime
+tokio = { version = "1.35", features = ["full"] }
+# Serialization
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+# CLI
+clap = { version = "4.4", features = ["derive"] }
+# Logging
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["fmt", "env-filter"] }
+# Process execution
+tokio-process = "0.5"
+# File system
+walkdir = "2.4"
+# HTTP clients (for telemetry)
+reqwest = { version = "0.11", features = ["json"] }
+# Environment variables
+dotenvy = "0.15"
+# Channels for IPC
+crossbeam-channel = "0.5"
+# Error handling
+anyhow = "1.0"
+thiserror = "1.0"
+# Date/time
+chrono = { version = "0.4", features = ["serde"] }
+# Terminal handling
+crossterm = "0.27"
+# Unicode/emoji
+unicode-segmentation = "1.10"
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
+panic = "unwind"
+
+[workspace]
+members = ["."]

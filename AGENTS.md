@@ -3,8 +3,9 @@
 **Project**: Sweet Dew And A Warm Nest — a free, ad-free sanctuary platform for people navigating low energy, depression, or related feelings.
 **Scope**: Full project framework — frontend (React/TS/Three.js PWA), backend (Node/Express + Socket.IO), shared types, games (chess, checkers, skateboarding, car racing, spaceship racing/battles), AI NPCs, crisis infrastructure, positive-only chat system.
 **Created**: 2026-11-18
-**Orientation**: Orientation complete. SPEC.txt fully read and analyzed. All deliverables created. Deployed on Cloudflare Pages at sdaawn.pages.dev.
+**Orientation**: Orientation complete. SPEC.txt fully read and analyzed. All deliverables implemented. Verified in real browser (Playwright) and backend endpoints.
 **Website**: https://sdaawn.pages.dev
+**Running locally**: Frontend dev server at http://localhost:5173, backend at http://localhost:3000
 **Name**: Sweet Dew And A Warm Nest (cute, wholesome, sanctuary-themed, multi-word)
 
 ---
@@ -25,7 +26,7 @@
 frameworm/
 ├── README.md              # Project overview
 ├── PLAN.md                # Detailed implementation plan
-├── TODO.md                # Task list
+├── TODO.md                # Task list (live status)
 ├── HANDOVER.md            # Handover summary
 ├── docs/                  # Full documentation
 └── src/
@@ -33,7 +34,16 @@ frameworm/
     ├── backend/           # Express + Socket.IO server
     ├── shared/            # Shared TypeScript types & constants
     ├── games/             # Game implementations (2D canvas / 3D Three.js)
+    │   ├── chess/         # Chess (Canvas 2D)
+    │   ├── checkers/      # Checkers (Canvas 2D)
+    │   ├── skateboarding/ # Skateboarding (Three.js)
+    │   ├── car-racing/    # Car racing (Three.js)
+    │   └── spaceship-racing/ # Spaceship racing (Three.js)
     ├── public/            # Static assets (fonts, icons, audio)
+    │   ├── sw.js          # PWA service worker
+    │   ├── manifest.json  # PWA manifest
+    │   ├── icon-192.png   # PWA icon
+    │   └── icon-512.png   # PWA icon
     ├── tools/             # Build, dev, and utility scripts
     └── tests/             # Automated tests
 ```
@@ -44,8 +54,8 @@ frameworm/
 
 - **PWA frontend**: React + TypeScript + Vite. Three.js for 3D hub world. Canvas 2D for board games.
 - **Backend**: Node.js + Express + Socket.IO for real-time multiplayer sync.
-- **AI NPCs**: On-device WebLLM (WebGPU) with server-side Gemma fallback. Grounded in curated reference notes.
-- **Chat**: Positive-only phrase library (predefined IDs + emojis), server-side hard validation.
+- **AI NPCs**: Server-side Gemma 2B fallback (via `@huggingface/inference`) with retrieval fallback. WebLLM (on-device) is planned but not yet fully integrated.
+- **Chat**: Positive-only phrase library (predefined IDs + emojis), server-side hard validation (server rejects any message not in the approved phrase library).
 - **Crisis**: Location-aware 988/lifeline integration, tiered escalation protocol.
 - **Data**: Ephemeral session tokens, zero persistent multiplayer records, differential privacy.
 - **Games**: Chess, checkers (Canvas 2D, no dependencies). Skateboarding, car racing, spaceship racing/battles (Three.js).
@@ -55,18 +65,18 @@ frameworm/
 
 ## 4. Build Commands
 
-- `npm run dev` — start frontend dev server
-- `npm run dev:backend` — start backend server
+- `npm run dev` — start frontend dev server (http://localhost:5173)
+- `npm run dev:backend` — start backend server (http://localhost:3000)
 - `npm run build` — production build
-- `npm run test` — run all tests
-- `npm run test:browser` — Playwright headless browser tests
+- `npx playwright test` — Playwright headless browser tests
+- `cd framework/src/backend && npm test` — backend tests
 
 ---
 
 ## 5. Quality Gates
 
 - WCAG 2.1 AA: all interactive elements have visible keyboard focus, alt text, ARIA labels
-- Positive-only chat: server rejects any message not in the approved phrase library
+- Positive-only chat: server rejects any message not in the approved phrase library (30 phrases + 10 emojis)
 - Crisis: every screen displays crisis numbers; panic button routes to safe page
 - Games: no fail state, no time pressure, no negative feedback
 - Offline: service worker caches all assets; app works without network

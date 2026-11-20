@@ -1,4 +1,4 @@
-# Soft Dew And A Warm Nest — Backend
+# Sweet Dew And A Warm Nest — Backend
 
 Express + Socket.IO backend for the wellness sanctuary platform.
 

@@ -1,11 +1,11 @@
-# AGENTS.md — Soft Dew And A Warm Nest
+# AGENTS.md — Sweet Dew And A Warm Nest
 
-**Project**: Soft Dew And A Warm Nest — a free, ad-free sanctuary platform for people navigating low energy, depression, or related feelings.
+**Project**: Sweet Dew And A Warm Nest — a free, ad-free sanctuary platform for people navigating low energy, depression, or related feelings.
 **Scope**: Full project framework — frontend (React/TS/Three.js PWA), backend (Node/Express + Socket.IO), shared types, games (chess, checkers, skateboarding, car racing, spaceship racing/battles), AI NPCs, crisis infrastructure, positive-only chat system.
 **Created**: 2026-11-18
 **Orientation**: Orientation complete. SPEC.txt fully read and analyzed. All deliverables created. Deployed on Cloudflare Pages at sdaawn.pages.dev.
 **Website**: https://sdaawn.pages.dev
-**Name**: Soft Dew And A Warm Nest (cute, wholesome, sanctuary-themed, multi-word)
+**Name**: Sweet Dew And A Warm Nest (cute, wholesome, sanctuary-themed, multi-word)
 
 ---
 

@@ -1,10 +1,10 @@
-# Soft Dew And A Warm Nest
+# Sweet Dew And A Warm Nest
 
 A free, ad-free sanctuary platform for people navigating low energy, depression, or related feelings.
 
 ## Overview
 
-Soft Dew And A Warm Nest is a cozy, calming virtual sanctuary built for people who need a safe, quiet place to exist. It features a shared universe with a persistent hub, AI-NPC companions, cozy games (chess, checkers, skateboarding, car racing, spaceship racing/battles), and a positive-only communication system.
+Sweet Dew And A Warm Nest is a cozy, calming virtual sanctuary built for people who need a safe, quiet place to exist. It features a shared universe with a persistent hub, AI-NPC companions, cozy games (chess, checkers, skateboarding, car racing, spaceship racing/battles), and a positive-only communication system.
 
 ## Core Principles
 

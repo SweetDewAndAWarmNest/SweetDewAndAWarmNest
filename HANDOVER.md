@@ -1,6 +1,6 @@
 # HANDOVER.md — Handover Summary
 
-**Project**: Soft Dew And A Warm Nest
+**Project**: Sweet Dew And A Warm Nest
 **Date**: 2026-11-18
 **Prepared by**: Development team
 

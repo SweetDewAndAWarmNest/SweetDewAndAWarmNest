@@ -7,7 +7,7 @@
 
 ## 1. About This Repo
 
-This is the **Private** repository for the Soft Dew And A Warm Nest project.
+This is the **Private** repository for the Sweet Dew And A Warm Nest project.
 It holds everything that is not meant for public release, plus the full private
 implementation. The **Public** repo (`SweetDewAndAWarmNest`) holds only the spec
 and non-sensitive documentation.

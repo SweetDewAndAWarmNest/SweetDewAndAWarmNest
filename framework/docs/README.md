@@ -1,4 +1,4 @@
-# Documentation for Soft Dew And A Warm Nest
+# Documentation for Sweet Dew And A Warm Nest
 
 This directory contains the full project documentation:
 

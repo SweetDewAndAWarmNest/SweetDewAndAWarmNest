@@ -1,4 +1,4 @@
-# Soft Dew And A Warm Nest — Games
+# Sweet Dew And A Warm Nest — Games
 
 This directory contains the game implementations for the wellness sanctuary platform.
 

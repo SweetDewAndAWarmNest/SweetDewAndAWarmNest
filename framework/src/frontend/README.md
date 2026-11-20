@@ -1,4 +1,4 @@
-# Soft Dew And A Warm Nest — Frontend
+# Sweet Dew And A Warm Nest — Frontend
 
 React + TypeScript + Vite PWA for the wellness sanctuary platform.
 

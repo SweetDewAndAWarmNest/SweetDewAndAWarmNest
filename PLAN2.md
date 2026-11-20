@@ -1,6 +1,6 @@
 # PLAN2.md — Implementation Plan
 
-**Project**: Soft Dew And A Warm Nest
+**Project**: Sweet Dew And A Warm Nest
 **Status**: Planning phase
 **Date**: 2026-11-19
 

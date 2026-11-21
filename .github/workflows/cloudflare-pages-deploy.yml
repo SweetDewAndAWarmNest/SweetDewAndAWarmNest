@@ -21,11 +21,11 @@ jobs:
 
       - name: Install deps
         run: npm ci
-        working-directory: framework/src/frontend
+        working-directory: src/frontend
 
       - name: Build
         run: npm run build
-        working-directory: framework/src/frontend
+        working-directory: src/frontend
 
       - name: Deploy to Cloudflare Pages
         uses: cloudflare/pages-action@v1
@@ -33,4 +33,4 @@ jobs:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           projectName: sdaawn-pages
-          directory: framework/src/frontend/dist
+          directory: src/frontend/dist

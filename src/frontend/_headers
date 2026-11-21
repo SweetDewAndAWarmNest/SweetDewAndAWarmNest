@@ -1,0 +1,23 @@
+# Cache static assets for 1 year
+/assets/*
+  cache-control: public, max-age=31536000, immutable
+
+/*.html
+  cache-control: public, max-age=0, must-revalidate
+
+/*.css
+  cache-control: public, max-age=31536000, immutable
+
+/*.png
+  cache-control: public, max-age=31536000, immutable
+
+/*.ico
+  cache-control: public, max-age=31536000, immutable
+
+# HTML files (always fresh)
+*/*.html
+  cache-control: public, max-age=0, must-revalidate
+
+# SW.js (versioned, long cache)
+/sw.js
+  cache-control: public, max-age=86400

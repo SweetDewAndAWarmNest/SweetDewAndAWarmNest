@@ -23,14 +23,14 @@ jobs:
         run: npm ci
         working-directory: src/frontend
 
+      - name: Build frontend
+        run: npm run build --prefix src/frontend
+
       - name: Deploy to Cloudflare Pages
-        id: pages
         uses: cloudflare/pages-action@v1
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           projectName: sdaawn
           directory: src/frontend/dist
-          buildCommand: npm run build --prefix src/frontend
-          buildDirectory: src/frontend
 

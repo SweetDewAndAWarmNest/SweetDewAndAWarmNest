@@ -5,16 +5,13 @@
   "description": "A free, ad-free sanctuary platform for people navigating low energy, depression, or related feelings.",
   "scripts": {
     "dev": "cd src/frontend && npm run dev",
-    "dev:backend": "cd src/backend && npm run dev",
-    "build": "npm run build --prefix src/frontend && npm run build --prefix src/backend",
+    "dev:backend": "cd backend && npm run dev",
+    "build": "npm run build --prefix src/frontend",
     "test": "npm run test --prefix src/frontend",
     "test:browser": "npx playwright test",
     "deploy": "npm run build && wrangler deploy"
   },
-  "workspaces": [
-    "src/frontend",
-    "src/backend"
-  ],
+  "workspaces": [],
   "engines": {
     "node": ">=18.0.0"
   },

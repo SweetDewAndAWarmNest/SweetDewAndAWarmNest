@@ -19,7 +19,7 @@ export default defineConfig({
     },
   ],
   webServer: {
-    command: 'npm run dev --prefix framework/src/frontend',
+    command: 'npm run dev --prefix src/frontend',
     port: 5173,
     reuseExistingServer: true,
   },

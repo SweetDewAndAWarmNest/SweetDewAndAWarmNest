@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "private": true,
   "description": "Express + Socket.IO backend for Soft Dew And A Warm Nest",
-  "main": "src/index.js",
+  "main": "index.js",
   "scripts": {
-    "dev": "node src/index.js",
-    "start": "node src/index.js",
+    "dev": "node index.js",
+    "start": "node index.js",
     "test": "echo \"No tests yet\""
   },
   "engines": {

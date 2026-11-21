@@ -24,6 +24,7 @@ jobs:
         working-directory: src/frontend
 
       - name: Deploy to Cloudflare Pages
+        id: pages
         uses: cloudflare/pages-action@v1
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
@@ -31,4 +32,5 @@ jobs:
           projectName: sdaawn
           directory: src/frontend/dist
           buildCommand: npm run build --prefix src/frontend
+          buildDirectory: src/frontend
 

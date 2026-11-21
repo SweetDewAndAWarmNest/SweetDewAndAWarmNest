@@ -163,16 +163,16 @@ export function Hub({ roomId, chat, onSendMessage, library = {} }: HubProps) {
   return (
     <div className="hub">
       <header className="hub-header">
-        <h1 style={{ fontSize: '2rem', fontFamily: 'Playfair Display, serif' }}>
-          Sweet Dew And A Warm Nest
-        </h1>
-        <p style={{ color: theme.textSecondary }}>
-          A calm sanctuary — take your time, breathe, and be here.
-        </p>
-      </header>
+      <h1 style={{ fontSize: '2rem', fontFamily: 'Playfair Display, serif' }}>
+        Sweet Dew And A Warm Nest
+      </h1>
+      <p style={{ color: theme.textSecondary }}>
+        A calm sanctuary — take your time, breathe, and be here.
+      </p>
+    </header>
 
-      <main className="hub-main">
-        <div className="chat-container">
+    <main id="main-content" className="hub-main">
+      <div className="chat-container">
           <div className="chat-messages">
             {messages.map((msg) => (
               <ChatBubble
@@ -185,7 +185,11 @@ export function Hub({ roomId, chat, onSendMessage, library = {} }: HubProps) {
           </div>
 
           <form className="chat-input" onSubmit={handleSend}>
+            <label htmlFor="chat-input" style={{ position: 'absolute', clip: 'rect(0, 0, 0, 0)', fontSize: '1px' }}>
+              Type a kind message, then press Enter
+            </label>
             <input
+              id="chat-input"
               type="text"
               value={input}
               onChange={(e) => setInput(e.target.value)}
@@ -205,6 +209,7 @@ export function Hub({ roomId, chat, onSendMessage, library = {} }: HubProps) {
             <button
               type="submit"
               disabled={!input.trim()}
+              aria-label={input.trim() ? `Send message: ${input.trim()}` : 'Send'}
               style={{
                 padding: '10px 18px',
                 borderRadius: '8px',
@@ -263,7 +268,7 @@ export function Hub({ roomId, chat, onSendMessage, library = {} }: HubProps) {
           trained professional.
         </p>
         <a
-          href="#"
+          href="/"
           style={{
             color: theme.accent,
             textDecoration: 'underline',

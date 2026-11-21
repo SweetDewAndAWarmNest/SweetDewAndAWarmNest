@@ -16,3 +16,7 @@ private_key = ""
 # Environment variables
 [vars]
 NODE_ENV = "production"
+
+[_pages]
+build_command = "npm run build"
+output_dir = "src/frontend/dist"

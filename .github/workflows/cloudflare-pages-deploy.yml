@@ -28,7 +28,7 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          projectName: sdaawn-pages
+          projectName: sdaawn
           directory: src/frontend/dist
           buildCommand: npm run build --prefix src/frontend
 

@@ -1,7 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react';
 import * as THREE from 'three';
 import { Canvas } from '@react-three/fiber';
-import { Environment, ContactShadows, Center, Float } from '@react-three/drei';
+import { Environment, ContactShadows, Center, Float, Sphere } from '@react-three/drei';
+import { NPCCompanion } from './NPCCompanion';
+import { Bench } from './Bench';
+import { Mailbox } from './Mailbox';
+import { AvatarCreator } from './AvatarCreator';
 
 // ── Types ──────────────────────────────────────────────
 export interface ChatMessage {
@@ -59,6 +63,130 @@ function HubScene() {
         blur={2}
         color="rgba(0,0,0,0.4)"
       />
+
+      {/* NPC character (expressive autonomy) */}
+      <Float speed={0.8}>
+        <HumanoidNPC />
+      </Float>
+    </>
+  );
+}
+
+// ── NPC 3D Character ─────────────────────────────────────
+// Expressive autonomy: body language, subtle animations
+function HumanoidNPC() {
+  const [idle, setIdle] = useState(true);
+  const [leaning, setLeaning] = useState(false);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (Math.random() > 0.7) {
+        setIdle(!idle);
+      }
+      if (Math.random() > 0.8) {
+        setLeaning(!leaning);
+      }
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <>
+      {/* Head */}
+      <Sphere args={[0.8, 32, 32]} position={[0, 1.2, 0]}>
+        <meshStandardMaterial
+          color="#1a1a2e"
+          roughness={0.4}
+          metalness={0.2}
+        />
+      </Sphere>
+
+      {/* Eyes */}
+      <group position={[0, 1.3, 0.9]}>
+        <Sphere args={[0.15, 16, 16]} position={[-0.3, 0, 0]}>
+          <meshStandardMaterial color="#fff" />
+        </Sphere>
+        <Sphere args={[0.1, 12, 12]} position={[-0.25, 0.05, 0]}>
+          <meshStandardMaterial color="#333" />
+        </Sphere>
+        <Sphere args={[0.08, 10, 10]} position={[-0.28, 0.08, 0.05]}>
+          <meshStandardMaterial color="#66f" />
+        </Sphere>
+      </group>
+      <group position={[0, 1.3, 0.9]}>
+        <Sphere args={[0.15, 16, 16]} position={[0.3, 0, 0]}>
+          <meshStandardMaterial color="#fff" />
+        </Sphere>
+        <Sphere args={[0.1, 12, 12]} position={[0.25, 0.05, 0]}>
+          <meshStandardMaterial color="#333" />
+        </Sphere>
+        <Sphere args={[0.08, 10, 10]} position={[0.28, 0.08, 0.05]}>
+          <meshStandardMaterial color="#66f" />
+        </Sphere>
+      </group>
+
+      {/* Mouth (expressive) */}
+      <group position={[0, 1.15, 0.95]}>
+        <Sphere args={[0.2, 16, 16]}>
+          <meshStandardMaterial color="#1a1a2e" />
+        </Sphere>
+        <group position={[0, 0, 0.05]}>
+          <Sphere args={[0.12, 12, 12]}>
+            <meshStandardMaterial color="#66f" />
+          </Sphere>
+        </group>
+        <group
+          position={leaning ? [0, 0, 0.05] : [0, 0.1, 0.05]}
+          scale={leaning ? [1, 1.2, 1] : [1, 0.8, 1]}
+        >
+          <Sphere args={[0.15, 12, 12]}>
+            <meshStandardMaterial color="#999" />
+          </Sphere>
+        </group>
+      </group>
+
+      {/* Body */}
+      <group position={[0, 0, 0.1]}>
+        <Sphere args={[0.6, 24, 24]}>
+          <meshStandardMaterial color="#1a1a2e" />
+        </Sphere>
+        <group position={[0, 0.3, 0.05]}>
+          <Sphere args={[0.25, 16, 16]}>
+            <meshStandardMaterial color="#7c5cff" />
+          </Sphere>
+          <group
+            position={[0, 0.1, 0.05]}
+            scale={[idle ? 1 : 1.2, 0.5, 0.8]}
+          >
+            <Sphere args={[0.12, 10, 10]}>
+              <meshStandardMaterial color="#fff" />
+            </Sphere>
+          </group>
+        </group>
+      </group>
+
+      {/* Arms (expressive) */}
+      <group position={[0.8, 0.8, 0.15]}>
+        <group rotation={[0.3, 0, 0]}>
+          <Sphere args={[0.15, 12, 12]}>
+            <meshStandardMaterial color="#1a1a2e" />
+          </Sphere>
+          <Sphere args={[0.1, 10, 10]} position={[0, 0.15, 0.05]}>
+            <meshStandardMaterial color="#7c5cff" />
+          </Sphere>
+        </group>
+      </group>
+
+      <group position={[-0.8, 0.8, 0.15]}>
+        <group rotation={[-0.3, 0, 0]}>
+          <Sphere args={[0.15, 12, 12]}>
+            <meshStandardMaterial color="#1a1a2e" />
+          </Sphere>
+          <Sphere args={[0.1, 10, 10]} position={[0, 0.15, 0.05]}>
+            <meshStandardMaterial color="#7c5cff" />
+          </Sphere>
+        </group>
+      </group>
     </>
   );
 }
@@ -278,6 +406,18 @@ export function Hub({ roomId, chat, onSendMessage, library = {} }: HubProps) {
           Crisis resources
         </a>
       </footer>
+
+      {/* NPC Companion with dual-memory */}
+      <NPCCompanion roomId={roomId} userId="demouser" />
+
+      {/* Bench (consensual conversation) */}
+      <Bench />
+
+      {/* Mailbox (asynchronous kindness) */}
+      <Mailbox />
+
+      {/* Avatar Creator (optional customization) */}
+      <AvatarCreator />
 
       <Canvas camera={{ position: [0, 2, 8], fov: 60 }}>
         <HubScene />

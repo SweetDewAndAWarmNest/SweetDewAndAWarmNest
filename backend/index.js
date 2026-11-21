@@ -11,6 +11,8 @@ const apiRouter = require('./routes/api');
 const { chatService } = require('./services/chat-moderation');
 const { crisisService } = require('./services/crisis-escalation');
 const { aiNpcService } = require('./services/ai-npc');
+const { npcCompanionService } = require('./services/npc-companion');
+const npcRouter = require('./routes/npc');
 
 const app = express();
 const server = http.createServer(app);
@@ -37,6 +39,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Routes
 app.use('/api/chat', chatRouter.router);
 app.use('/api/crisis', crisisRouter.router);
+app.use('/api/npc', npcRouter.router);
 app.use('/api', apiRouter.router);
 
 // Socket.IO connection
@@ -71,6 +74,67 @@ io.on('connection', (socket) => {
     }
   });
 
+  // NPC companion (dual-memory with persistent storage)
+  socket.on('npc-action', async (data) => {
+    try {
+      const { action, userId, content, roomId } = data;
+      let response = '';
+      let memoryId = null;
+
+      switch (action) {
+        case 'greeting':
+          response = npcCompanionService.getGreeting();
+          break;
+        case 'message':
+          response = await npcCompanionService.generateResponse(content, {
+            userId,
+            roomId,
+            socketId: socket.id,
+          });
+          // Save the memory
+          memoryId = npcCompanionService.saveMemory(userId, 'conversation', content, {
+            roomId,
+            socketId: socket.id,
+          });
+          break;
+        case 'state':
+          response = npcCompanionService.getStateDescription();
+          break;
+        case 'crisis-response':
+          response = await npcCompanionService.generateResponse(content, {
+            userId,
+            intent: 'crisis-response',
+            roomId,
+            socketId: socket.id,
+          });
+          break;
+        default:
+          response = "I'm here. I'm listening. Take your time.";
+      }
+
+      socket.emit('npc-action', {
+        id: socket.id,
+        action,
+        response,
+        memoryId,
+        timestamp: new Date().toISOString(),
+      });
+    } catch (err) {
+      socket.emit('npc-action-error', { error: 'Failed to process NPC action' });
+    }
+  });
+
+  // Get NPC memories (for dual-memory retrieval)
+  socket.on('npc-memories', async (data) => {
+    try {
+      const { userId } = data || {};
+      const memories = npcCompanionService.getMemories(userId, 10);
+      socket.emit('npc-memories', { memories, count: memories.length });
+    } catch (err) {
+      socket.emit('npc-memories-error', { error: 'Failed to retrieve memories' });
+    }
+  });
+
   // Chat message (positive-only validation)
   socket.on('chat-message', async (data) => {
     try {
@@ -97,6 +161,10 @@ io.on('connection', (socket) => {
   // Disconnect
   socket.on('disconnect', () => {
     console.log('Client disconnected:', socket.id);
+    // Clear short-term memory on disconnect
+    if (socket._npcMemory) {
+      socket._npcMemory.clear();
+    }
   });
 });
 

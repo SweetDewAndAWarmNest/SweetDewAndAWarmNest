@@ -25,10 +25,10 @@ jobs:
           cache: 'npm'
 
       - name: Install dependencies
-        run: npm ci
+        run: npm install --ignore-scripts --no-audit --no-fund --no-fund
 
       - name: Build frontend
-        run: cd framework/src/frontend && npm ci && npm run build
+        run: cd framework/src/frontend && npm install --ignore-scripts --no-audit --no-fund --no-fund && npm run build
 
       - name: Run Playwright tests
         if: github.event_name == 'pull_request'

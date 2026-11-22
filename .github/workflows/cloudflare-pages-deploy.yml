@@ -20,7 +20,7 @@ jobs:
           node-version: 20
 
       - name: Install deps
-        run: npm ci
+        run: npm install --ignore-scripts --no-audit --no-fund --no-fund
         working-directory: src/frontend
 
       - name: Build frontend
